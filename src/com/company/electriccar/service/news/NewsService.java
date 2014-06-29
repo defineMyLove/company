@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -42,7 +43,18 @@ public class NewsService {
         if (StringUtil.isNotBlank(zhuan.getTitle())) {
             buffer.append(" and title like '%").append(zhuan.getTitle()).append("%'");
         }
+        buffer.append(" order by create_time desc");
         Map resultMap= baseDao.queryForDataGrid(request,buffer.toString(), new SqlParameter());
         return resultMap;
+    }
+
+    public List<Map> find(NEW_INFO zhuan, int i) {
+        StringBuffer buffer = new StringBuffer("select * from NEW_INFO where 1=1 ");
+        if (StringUtil.isNotBlank(zhuan.getTitle())) {
+            buffer.append(" and title like '%").append(zhuan.getTitle()).append("%'");
+        }
+        buffer.append(" order by create_time desc");
+        Map resultMap= baseDao.queryForDataGrid(1,10, buffer.toString(), new SqlParameter());
+        return (List<Map>) resultMap.get("rows");
     }
 }
