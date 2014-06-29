@@ -1,0 +1,379 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: tahoma, arial, 'Hiragino Sans GB', 'Microsoft Yahei', '宋体';
+}
+
+body {
+    font-family: '新宋体';
+}
+
+.bodycont {
+    width: 990px;
+    margin: 22px auto 0;
+}
+
+.top {
+    width: 984px;
+    height: 67px;
+    display: block;
+    padding-top: 22px;
+    padding-left: 18px;
+}
+
+.logo {
+    width: 426px;
+    height: 53px;
+    background: url(../images/index4_03.jpg) no-repeat;
+    display: block;
+    float: left;
+    margin-right: 205px;
+}
+
+.shenqing {
+    width: 256px;
+    height: 48px;
+    background: url(../images/index4_06.jpg) no-repeat center right;
+    display: block;
+    float: right;
+    cursor: pointer;
+
+}
+
+.login_link {
+    width: 150px;
+    height: 47px;
+    display: block;
+    float: left;
+    line-height: 47px;
+}
+
+.login_link a {
+    color: #ff7200;
+}
+
+.menu {
+    width: 980px;
+    height: 43px;
+    display: block;
+    background: url(../images/car_08.jpg) repeat-x;
+    padding-left: 11px;
+    padding-right: 11px;
+}
+
+.menu a {
+    width: 187px;
+    height: 43px;
+    outline: none;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 14px;
+    display: inline;
+    float: left;
+    line-height: 43px;
+    font-family: "微软雅黑";
+    text-decoration: none;
+}
+
+.menu a:hover, .menu .link_hover {
+    width: 187px;
+    height: 43px;
+    outline: none;
+    text-align: center;
+    color: #000000;
+    font-size: 14px;
+    display: inline;
+    float: left;
+    line-height: 43px;
+    font-family: "微软雅黑";
+    background: url(../images/car_07.jpg) center no-repeat;
+    text-decoration: none;
+}
+
+.menu img {
+    display: inline;
+    float: left;
+}
+
+.flash {
+    width: 990px;
+    height: 230px;
+    display: block;
+    float: left;
+}
+
+.regddccx {
+    width: 266px;
+    height: 192px;
+    display: block;
+    border: 1px solid #ffffff;
+    background: url(../images/index4_11.jpg) no-repeat;
+    position: absolute;
+    z-index: 50;
+    top: 145px;
+    margin-left: 50px;
+    overflow: hidden;
+}
+
+.submit {
+    width: 232px;
+    height: 31px;
+    display: block;
+    float: left;
+    background: #ff7200;
+}
+
+.car_btn {
+    width: 230px;
+    height: 44px;
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 16px;
+    background: url(../images/index44_11.png) no-repeat;
+}
+
+.peo1_btn {
+    width: 106px;
+    height: 31px;
+    display: block;
+    float: left;
+    background: url(../images/index44_14.jpg) no-repeat;
+    margin-left: 3px;
+}
+
+.peo2_btn {
+    width: 106px;
+    height: 31px;
+    display: block;
+    float: left;
+    background: url(../images/index44_16.jpg) no-repeat;
+    margin-left: 3px;
+}
+
+.login {
+    font-family: '黑体';
+    background: url(../images/login_bg.jpg) no-repeat;
+    width: 358px;
+    height: 209px;
+    padding-left: 22px;
+    padding-right: 20px;
+    padding-top: 10px;
+    margin: 10px 10px 0 0;
+    float: left;
+}
+
+.login a {
+    cursor: pointer
+}
+
+.login_btn {
+    width: 85px;
+    height: 58px;
+    display: block;
+    background: url(../images/login_btn.png) no-repeat;
+}
+table{
+    border-collapse:collapse;
+}
+.login-input table tr td {
+    height: 30px;
+}
+
+.login-input table tr td input {
+    height: 20px;
+    width: 180px;
+}
+
+.login-other {
+    height: 40px;
+    position: relative;
+    margin-top: 15px;
+}
+
+.login-other .gongan_login {
+    width: 188px;
+    height: 44px;
+    display: block;
+    background: url(../images/gongan_login.jpg) no-repeat;
+    position: absolute;
+    left: 0;
+}
+
+.login-other .reg_btn {
+    width: 154px;
+    height: 44px;
+    display: block;
+    background: url(../images/reg_btn.png) no-repeat;
+    position: absolute;
+    right: 0;
+}
+
+.service-line {
+    margin: 30px auto;
+    font-family: "黑体";
+    font-weight: bold;
+    color: #904e13;
+    font-size: 20px;
+    text-align: center;
+    clear: both;
+}
+
+.user_logon {
+    background: url(../images/userlogin_bg.jpg) no-repeat;
+    width: 358px;
+    height: 209px;
+    padding-left: 22px;
+    padding-right: 20px;
+    padding-top: 10px;
+    float:left;
+    margin: 10px 10px 0 0;
+
+}
+
+/*.login, .user_logon, .index_new, .message {
+    display: inline;
+    float: left;
+    margin-left: 12px;
+    margin-top: 5px;
+}*/
+
+
+.index_new {
+    clear: both;
+    float: left;
+
+}
+
+.index_new_title, .message_title {
+    height: 33px;
+    display: block;
+    line-height: 33px;
+    font-weight: bold;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.index_new_title {
+    width: 390px;
+    background: url(../images/car_16.jpg) no-repeat;
+}
+
+.message_title {
+    width: 570px;
+    background: url(../images/list_title.jpg) no-repeat;
+    border: 1px solid #CCCCCC;
+    border-bottom: none;
+}
+
+.index_new_title .more, .message_title .more {
+    text-decoration: none;
+    font-weight: normal;
+    color: #000000;
+    float: right;
+    margin-right: 15px;
+}
+
+.index_new_title .more:hover, .message_title .more:hover {
+    text-decoration: underline;
+    font-weight: normal;
+    color: #ff7200;
+    float: right;
+    margin-right: 15px;
+}
+
+.index_new_cont {
+    width: 390px;
+    display: block;
+    padding-top: 10px;
+
+}
+
+.index_new_cont ul li {
+    width: 380px;
+    list-style: none;
+    display: block;
+    float: left;
+    background: url(../images/cir.jpg) no-repeat left center;
+    padding-left: 7px;
+    margin-left: 5px;
+}
+
+.index_new_cont ul li a {
+    line-height: 25px;
+    display: block;
+    float: left;
+    width: 380px;
+    color: #484848;
+    text-decoration: none;
+    border-bottom: 1px dotted #b0b0b0;
+}
+
+.index_new_cont ul li a:hover {
+    line-height: 25px;
+    display: block;
+    float: left;
+    width: 380px;
+    color: #ff7200;
+    text-decoration: none;
+}
+
+.message_cont {
+    width: 592px;
+    display: block;
+    float: left;
+}
+
+.message_cont table {
+    width: 592px;
+    border-left: 1px solid #CCCCCC;
+}
+
+.message_cont tr {
+    height: 25px;
+}
+
+.message_cont th {
+    text-align: center;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    background: #fdf3e0;
+}
+
+.message_cont td {
+    text-align: center;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.bottom {
+    width:1002px;
+    height: 65px;
+    line-height: 20px;
+    text-align: center;
+    display: block;
+    clear: both;
+    padding-top: 8px;
+    border-top: 2px solid #f40;
+}
+
+.icon {
+    display: inline-block;
+    height: 35px;
+    /*width: 156px;*/
+    color: #222;
+    font-size: 13px;
+    line-height: 35px;
+    margin-bottom: 5px;
+
+.icon .iconfont {
+    margin-right: 10px;
+    font-size: 18px;
+    width: 20px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}

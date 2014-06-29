@@ -1,0 +1,11 @@
+
+-- ----------------------------
+-- 用户表
+-- ----------------------------
+DROP TABLE IF EXISTS `p_user`;
+CREATE TABLE `p_user` (
+  `username` varchar(20) NOT NULL DEFAULT '' COMMENT '用户名',
+  `password` varchar(20) NOT NULL COMMENT '密码',
+  `idname` varchar(50) NOT NULL,
+  PRIMARY KEY (`username`)
+)
