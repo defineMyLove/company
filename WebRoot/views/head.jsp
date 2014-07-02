@@ -38,7 +38,7 @@ swfobject.embedSWF("http://www.virb.com/external/video/59984/MsOGibJlcnVwzc26YS7
 
 <ul class="dropdown dropdown-horizontal">
 	<li><a href="${path}" class="dir">首页</a></li>
-	<li><a href="${path}/toView?view=toView?view=aboutint" class="dir">关于我们</a>
+	<li><a href="${path}/toView?view=aboutint" class="dir">关于我们</a>
 		<ul>
 			<li><a href="${path}/toView?view=aboutint">公司简介</a></li>
 			<li><a href="${path}/page/aboutque">公司资质</a></li>
@@ -56,16 +56,11 @@ swfobject.embedSWF("http://www.virb.com/external/video/59984/MsOGibJlcnVwzc26YS7
 			
 		</ul>
 	</li>
-	<li><a href="${path}/toView?view=solutions" class="dir">解决方案</a>
+	<li><a href="${path}/page/solutions" class="dir">解决方案</a>
 		<ul>
-			<li><a href="${path}/toView?view=solutions">演播室视音频系统</a></li>
-			<li><a href="${path}/toView?view=solutions">虚拟演播室系统</a></li>
-			<li><a href="${path}/toView?view=solutions">转播车系统</a></li>
-			<li><a href="${path}/toView?view=solutions">播出系统</a></li>
-			<li><a href="${path}/toView?view=solutions">矩阵及信号调度系统</a></li>
-			<li><a href="${path}/toView?view=solutions">数字电视前端DVB系统</a></li>
-			<li><a href="${path}/toView?view=solutions">信号传输系统</a></li>
-			<li><a href="${path}/toView?view=solutions">整体智能监控系统</a></li>
+            <c:forEach items="${head_solutionList}" var="solution">
+			<li><a href="${path}/page/solutions">${solution.name}</a></li>
+            </c:forEach>
 		</ul>
 	</li>
 	<li><a href="${path}/page/paper" class="dir">技术交流</a>

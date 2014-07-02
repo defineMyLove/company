@@ -22,6 +22,7 @@ import java.util.Map;
 public class ProductService {
     @Autowired
     private BaseDao baseDao;
+
     public void add(CHANPIN_INFO user, MultipartHttpServletRequest request) {
         if (StringUtil.isBlank(user.getId())) {
 
@@ -61,5 +62,10 @@ public class ProductService {
         buffer.append(" order by order_no,create_time desc");
         Map resultMap= baseDao.queryForDataGrid(request,buffer.toString(), new SqlParameter());
         return resultMap;
+    }
+
+    public String getLastestPic() {
+        String sql = "SELECT atta_path FROM chanpin_info WHERE create_time=(SELECT MAX(create_time) FROM chanpin_info)";
+        return baseDao.queryForString(sql);
     }
 }

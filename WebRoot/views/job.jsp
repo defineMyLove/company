@@ -46,15 +46,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  		<table class="biaoge2" >
 	  	    <tr><td>工作机会</td></tr>
 	  	    </table>
+            <div class="ui-table-container">
+                <c:forEach items="${newList}" var="new">
+                    <fieldset class="fieldset">
+                        <legend class="legend">${new.title}</legend>
+                            ${new.content}
+                    </fieldset>
+                </c:forEach>
+            </div>
 	  	</div>
-        <div class="ui-table-container">
-           <c:forEach items="${newList}" var="new">
-               <fieldset class="fieldset">
-                   <legend class="legend">${new.title}</legend>
-                   ${new.content}
-               </fieldset>
-           </c:forEach>
-        </div>
+
 	  	
   	</div>
   	

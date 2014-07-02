@@ -61,10 +61,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	    <tr><td>公司业绩</td></tr>
 	  	    </table>
             <div class="ui-table-container">
-                <display:table name="classList" uid="new" cellpadding="0"
-                               cellspacing="0" requestURI="${path }/page/news">
-                    <display:column title="业绩">
-                        <a href="${path}/page/yejilist?fenlei_id=${new.id}">${new.name}</a>
+                <display:table name="newList" uid="new" cellpadding="0"
+                               cellspacing="0" requestURI="${path }/page/yejilist">
+                    <display:column title="${fenlei.name}">
+                       ${new.name}
                     </display:column>
                 </display:table>
             </div>

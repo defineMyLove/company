@@ -246,7 +246,7 @@
          });
      }
     function submitForm(){
-        alert($('#newDialog:visible iframe[name^=ligerwindow]')[0].id);
+        /*alert($('#newDialog:visible iframe[name^=ligerwindow]')[0].id);*/
         $('#newDialog:visible iframe[name^=ligerwindow]')[0].contentWindow.submitForm();
     }
 </script>

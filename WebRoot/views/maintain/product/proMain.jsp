@@ -56,6 +56,7 @@
                 height: '80%',
                 onBeforeShowData: renderFormData,
                 columns: [
+                    { display: '图片', name: 'atta_path', align: 'left'},
                     { display: '标题', name: 'name', align: 'left'},
                     { display: '创建时间', name: 'create_time', align: 'left'},
                     { display: '内容', name: 'content', align: 'left'}

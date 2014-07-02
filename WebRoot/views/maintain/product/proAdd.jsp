@@ -68,6 +68,14 @@
                             <input type="text" class="text" name="des" id="des" value="${info.des}"/>
                     </td>
                 </tr>
+                <tr>
+                    <td width="20%" class="tabRight required">
+                        图片
+                    </td>
+                    <td width="30%" style="text-align: left;">
+                        <input type="file" class="text" name="file" id="file"/>
+                    </td>
+                </tr>
             </table>
             <table style="width: 98%;margin-buttom: 5px;">
                 <tr>

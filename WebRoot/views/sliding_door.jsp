@@ -100,16 +100,15 @@ function setTab(name,cursel,n){
 <div class="Contentbox">
   <div id="con_menu_1" class="hover">
   	<br/>
-    <span><img src="<%=basePath%>/static/images/027.png"></img>　演播室视音频系统</span><br/>
-    <span><img src="<%=basePath%>/static/images/027.png"></img>　转播车系统</span><br/>
-    <span><img src="<%=basePath%>/static/images/027.png"></img>　播出及总控系统</span><br/>
-    <span><img src="<%=basePath%>/static/images/027.png"></img>　矩阵及信号调度系统</span><br/>
-    <span><img src="<%=basePath%>/static/images/027.png"></img>　数字电视前端DVB系统</span><br/>
-    <span><img src="<%=basePath%>/static/images/027.png"></img>　信号传输系统</span><br/>
+     <c:forEach items="${head_solutionList}" var="solution">
+         <span><img src="<%=basePath%>/static/images/027.png"/>
+         <a href="<%=basePath%>/page/solutionDetail">${solution.name}</a>
+         </span><br/>
+     </c:forEach>
   </div>
   
   <div id="con_menu_2" style="display:none">
-  	<img style="height:195px; width:285px; margin-left:13px;" src="<%=basePath%>/static/images/xinchanpin .jpg"></img>
+  	<img style="height:195px; width:285px; margin-left:13px;" src="${path}${head_pic}"/>
   </div>
   
 </div>

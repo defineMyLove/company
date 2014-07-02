@@ -43,22 +43,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	<div class="wenben2">
 	  	    <div class="navbox">
 				<ul class="nav">
-					<li><a href="">演播室视音频系统</a></li>
-					<li><a href="">虚拟演播室系统</a></li>
-					<li><a href="">转播车系统</a></li>
-					<li><a href="">播出及总控系统</a></li>
-					<li><a href="">矩阵及信号调度系统</a></li>
-					<li><a href="">数字电视前端DVB系统</a></li>
-					<li><a href="">信号传输系统</a></li>
-					<li><a href="">整体智能监控系统</a></li>
+                    <c:forEach items="${solutionList}" var="solution">
+                        <li><a href="${path}/page/solution?fenlei_id=${solution.id}">${solution.name}</a></li>
+                    </c:forEach>
 				</ul>
 			</div>
 	  	</div>
 	  	
 	  	<div class="wenben3">
 	  		<table class="biaoge" >
-	  	    <tr><td>解决方案</td></tr>
+	  	    <tr><td>${info.name}</td></tr>
 	  	    </table>
+            <div class="ui-table-container">
+                <c:if test="${!empty infos}">
+                 <c:forEach items="${infos}" var="info">
+                     <div>
+                         ${info.name}
+                             <img style="height:195px; width:285px; margin-left:13px;" src="${path}${info.pic_path}"/>
+                     </div>
+                 </c:forEach>
+                </c:if>
+            </div>
 	  	</div>
   	</div>
   	

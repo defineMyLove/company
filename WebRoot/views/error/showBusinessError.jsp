@@ -21,10 +21,6 @@
     </style>
 </head>
 <body class="bodycont">
-<%@ include file="/views/common/homeTop.jsp" %>
-<div class="flash2">
-    <img src="${path}/static/images/list.jpg"/>
-</div>
 <div class="list_cont">
     <div class="list_cont_tit"></div>
     <div class="list_cont_ul"
@@ -44,6 +40,5 @@
         </div>
     </div>
 </div>
-<%@ include file="/views/common/homeBottom.jsp" %>
 </body>
 </html>

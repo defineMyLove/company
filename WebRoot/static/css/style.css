@@ -183,8 +183,6 @@ margin-left: 10px;
 /*�����ε���Ƶ����ʽ���*/
 .wenbenwai{
 	margin: auto;
-	width: 1000px;
-	height: 1000px;
 }
 
 .wenben1{
@@ -269,8 +267,11 @@ margin-left: 10px;
 /*�����ε�����Ƶ����ʽ���*/
 .show{
 	float:left;
-	height: 800px;
 	width: 998px;
 	background: #f3f3f3;
 	border:1px #b1b1b0 solid; 
+}
+
+.ui-table-container{
+    padding:10px;
 }

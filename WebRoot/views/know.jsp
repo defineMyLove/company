@@ -19,11 +19,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	
-	<link rel="stylesheet" href="<%=basePath%>/static/css/style.css" type="text/css"></link>
-	<link rel="stylesheet" href="<%=basePath%>/static/css/leftna.css" type="text/css"></link>
+      <link rel="stylesheet" href="<%=basePath%>/static/css/style.css" type="text/css"></link>
+      <link rel="stylesheet" href="<%=basePath%>/static/css/leftna.css" type="text/css"></link>
+      <link media="all" href="${path}/static/sea-modules/alice/table/1.0.1/table.css" rel="stylesheet">
+      <link media="all" href="${path}/static/sea-modules/alice/paging/1.0.1/paging.css" rel="stylesheet">
+      <link href="${path}/static/sea-modules/alice/form/1.0.2/form.css" type="text/css" rel="stylesheet"/>
+      <link href="${path}/static/sea-modules/alice/grid/1.0.0/grid.css" type="text/css" rel="stylesheet"/>
   </head>
-  
+
   <body>
   	
   	<!-- 网页头部 -->

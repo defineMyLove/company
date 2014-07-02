@@ -7,6 +7,7 @@ import com.company.electriccar.service.mesboard.MesBoardService;
 import com.company.electriccar.service.news.NewsService;
 import com.company.electriccar.service.product.ProductService;
 import com.company.electriccar.service.shipin.ShipinService;
+import com.company.electriccar.service.solution.SolutionService;
 import com.company.electriccar.service.work.WorkService;
 import com.company.electriccar.service.yeji.YejiClassifyService;
 import com.company.electriccar.service.yeji.YejiService;
@@ -43,6 +44,8 @@ public class PageController {
     private ZhishiService zhishiService;
     @Autowired
     private WorkService workService;
+    @Autowired
+    private SolutionService solutionService;
 
     /**
      * 新闻中心
@@ -94,8 +97,12 @@ public class PageController {
         String fenlei_id = request.getParameter("fenlei_id");
         YEJI_INFO info = new YEJI_INFO();
         info.setFenlei_id(fenlei_id);
+        YEJI_FENLEI fenlei = new YEJI_FENLEI();
+        fenlei.setId(fenlei_id);
+        fenlei.queryForBean();
         PaginationHelper<Map> newList = PaginationHelper.createPagination(yejiService.find(info, request));
         model.put("newList", newList);
+        model.put("fenlei", fenlei);
         return "aboutperlist";
     }
 
@@ -192,8 +199,32 @@ public class PageController {
     public String job(ModelMap model,String id,HttpServletRequest request) {
         WORK_INFO info = new WORK_INFO();
         info.setId(id);
-        model.put("info", workService.find(info,request));
+        model.put("newList", workService.find(info,request).get("rows"));
         return "job";
     }
+    /**
+     * 解决方案界面
+     * @param model
+     * @return
+     */
+    @RequestMapping("solutions")
+    public String solutions(ModelMap model,HttpServletRequest request) {
+        model.put("solutionList", solutionService.findAll());
+        return "solutions";
+    }
 
+    /**
+     * 解决方案界面
+     * @param model
+     * @return
+     */
+    @RequestMapping("solution")
+    public String solution(ModelMap model,String fenlei_id,HttpServletRequest request) {
+        model.put("solutionList", solutionService.findAll());
+
+        FANGAN_INFO info = new FANGAN_INFO();
+        info.setFenlei_id(fenlei_id);
+        model.put("infos", solutionService.find(info,request).get("rows"));
+        return "solutions";
+    }
 }

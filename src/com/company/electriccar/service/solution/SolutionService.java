@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -60,5 +61,20 @@ public class SolutionService {
         buffer.append(" order by create_time desc");
         Map resultMap= baseDao.queryForDataGrid(request,buffer.toString(), new SqlParameter());
         return resultMap;
+    }
+
+    public List<Map> find(FANGAN_INFO fangan, int i) {
+        StringBuffer buffer = new StringBuffer("select * from FANGAN_INFO where 1=1 ");
+        if (StringUtil.isNotBlank(fangan.getName())) {
+            buffer.append(" and name like '%").append(fangan.getName()).append("%'");
+        }
+        buffer.append(" order by create_time desc");
+        Map resultMap= baseDao.queryForDataGrid(1,10, buffer.toString(), new SqlParameter());
+        return (List<Map>) resultMap.get("rows");
+    }
+
+    public List<Map> findAll() {
+        StringBuffer buffer = new StringBuffer("select * from FANGAN_INFO where 1=1 ");
+        return baseDao.queryForList(buffer.toString());
     }
 }
