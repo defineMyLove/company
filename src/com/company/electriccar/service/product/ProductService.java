@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -67,5 +68,14 @@ public class ProductService {
     public String getLastestPic() {
         String sql = "SELECT atta_path FROM chanpin_info WHERE create_time=(SELECT MAX(create_time) FROM chanpin_info)";
         return baseDao.queryForString(sql);
+    }
+
+    public List<Map> findProduct(String id) {
+        List<Map> mapList = baseDao.queryForList("select id,name from chanpin_fenlei where up_id='" + id + "'");
+        for (Map map : mapList) {
+           List<Map> chanList = baseDao.queryForList("select id,name,des from chanpin_info where fenlei_id='" + map.get("id") + "'");
+            map.put("chird", chanList);
+        }
+        return mapList;
     }
 }

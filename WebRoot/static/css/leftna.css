@@ -23,7 +23,6 @@ body{
 ul.nav {
 	list-style: none;
 	display: block;
-	width: 200px;
 	position: relative;
 	top: -30px;
 	left: 35px;

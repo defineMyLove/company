@@ -5,19 +5,23 @@ import com.company.electriccar.service.lunwen.ZhishiService;
 import com.company.electriccar.service.lunwen.ZhuanLanService;
 import com.company.electriccar.service.mesboard.MesBoardService;
 import com.company.electriccar.service.news.NewsService;
+import com.company.electriccar.service.product.ProductClassifyService;
 import com.company.electriccar.service.product.ProductService;
 import com.company.electriccar.service.shipin.ShipinService;
+import com.company.electriccar.service.solution.SolutionClassifyService;
 import com.company.electriccar.service.solution.SolutionService;
 import com.company.electriccar.service.work.WorkService;
 import com.company.electriccar.service.yeji.YejiClassifyService;
 import com.company.electriccar.service.yeji.YejiService;
 import com.company.modules.displayTag.PaginationHelper;
+import com.company.modules.utils.WebUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
@@ -39,6 +43,10 @@ public class PageController {
     @Autowired
     private ProductService productService;
     @Autowired
+    private ProductClassifyService productClassifyService;
+    @Autowired
+    private SolutionClassifyService solutionClassifyService;
+    @Autowired
     private MesBoardService mesBoardService;
     @Autowired
     private ZhishiService zhishiService;
@@ -46,6 +54,7 @@ public class PageController {
     private WorkService workService;
     @Autowired
     private SolutionService solutionService;
+
 
     /**
      * 新闻中心
@@ -142,8 +151,29 @@ public class PageController {
      */
     @RequestMapping("data")
     public String data(ModelMap model,HttpServletRequest request) {
-        return "data";
+        return "redirect:/page/products";
     }
+
+    @RequestMapping("products")
+    public String products(ModelMap model,HttpServletRequest request) {
+        model.put("newList", productClassifyService.getLevelClassify());
+        return "products";
+    }
+
+    @RequestMapping("product")
+    public String product(ModelMap model,String id ,HttpServletRequest request) {
+        model.put("newList", productClassifyService.getLevelClassify());
+        model.put("productList",productService.findProduct(id));
+        return "products";
+    }
+
+    @RequestMapping("addMes")
+    public void addMes(MES_BOARD mes, HttpServletResponse response) {
+        mesBoardService.add(mes);
+        WebUtil.write(response, "1");
+    }
+
+
     /**
      * 知识库
      * @param model
@@ -209,7 +239,7 @@ public class PageController {
      */
     @RequestMapping("solutions")
     public String solutions(ModelMap model,HttpServletRequest request) {
-        model.put("solutionList", solutionService.findAll());
+        model.put("solutionList", solutionClassifyService.findAll());
         return "solutions";
     }
 
@@ -220,11 +250,20 @@ public class PageController {
      */
     @RequestMapping("solution")
     public String solution(ModelMap model,String fenlei_id,HttpServletRequest request) {
-        model.put("solutionList", solutionService.findAll());
+        model.put("solutionList", solutionClassifyService.findAll());
 
         FANGAN_INFO info = new FANGAN_INFO();
         info.setFenlei_id(fenlei_id);
         model.put("infos", solutionService.find(info,request).get("rows"));
         return "solutions";
     }
+
+    @RequestMapping("solutionDetail")
+    public String solutionDetail(ModelMap model,String id,HttpServletRequest request) {
+        model.put("solutionList", solutionClassifyService.findAll());
+        model.put("info", solutionService.selectByPk(id));
+        return "solutionDetail";
+    }
 }
+
+

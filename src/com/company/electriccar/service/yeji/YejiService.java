@@ -62,4 +62,9 @@ public class YejiService {
         Map resultMap= baseDao.queryForDataGrid(request,buffer.toString(), new SqlParameter());
         return resultMap;
     }
+
+    public List<Map> findYejiPic(int i) {
+        String sql = "select y.id,y.name,y.content as pic_path from YEJI_INFO y,YEJI_FENLEI f where y.fenlei_id = f.id and f.type=2";
+        return baseDao.queryForList(sql);
+    }
 }

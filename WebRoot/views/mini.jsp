@@ -32,16 +32,10 @@ a{color:#333;}
 		<table width="1000" border="0" cellspacing="0" cellpadding="0">
 
 		  <tr>
+              <c:forEach items="${yejiList}" var="yeji">
 
-			<td width="300" align="center"><a href="#"><img src="<%=basePath%>/static/images/m1.jpg" width="210" height="160" /><br/><br/>风景1</a></td>
-
-			<td width="300" align="center"><a href="#"><img src="<%=basePath%>/static/images/m2.jpg" width="210" height="160" /><br/><br/>风景2</a></td>
-
-			<td width="300" align="center"><a href="#"><img src="<%=basePath%>/static/images/m3.jpg" width="210" height="160" /><br/><br/>风景3</a></td>
-
-			<td width="300" align="center"><a href="#"><img src="<%=basePath%>/static/images/m4.jpg" width="210" height="160" /><br/><br/>风景4</a></td>
-
-			<td width="300" align="center"><a href="#"><img src="<%=basePath%>/static/images/m5.jpg" width="210" height="160" /><br/><br/>风景5</a></td>
+			<td width="300" align="center"><a href="#"><img src="<%=basePath%>${yeji.pic_path}" width="210" height="160" /><br/><br/>${yeji.name}</a></td>
+              </c:forEach>
 
 		  </tr>
 

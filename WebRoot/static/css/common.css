@@ -231,7 +231,7 @@ label.success {
     border-color: #F8F8F8 #ABB8CE #ABB8CE #F8F8F8;
     background: #E0E8F5;
     padding: 4px;
-    text-align: left;
+    text-align: right;
     vertical-align: top;
     border-width: 1px;
     border-style: solid;
@@ -241,7 +241,7 @@ label.success {
 .table-add .tabRight {
     padding: 5px 4px;
     font-weight: bold;
-    text-align: right;
+    text-align: left;
     text-shadow: 1px 1px 0 #E4EDFB;
     vertical-align: middle;
     background: #D0DBEE;

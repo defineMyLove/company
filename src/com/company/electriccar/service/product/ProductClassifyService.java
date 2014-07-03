@@ -53,4 +53,8 @@ public class ProductClassifyService {
     public Map selectByPk(String fenlei_id) {
         return baseDao.queryForMap("select * from CHANPIN_FENLEI where id ='" + fenlei_id + "'");
     }
+
+    public List<Map> getLevelClassify() {
+        return baseDao.queryForList("select * from CHANPIN_FENLEI where up_id =0");
+    }
 }

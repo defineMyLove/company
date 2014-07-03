@@ -38,7 +38,7 @@ public class ZhishiService {
     }
 
     public Map find(TECH_ZHISHI zhuan, HttpServletRequest request) {
-        StringBuffer buffer = new StringBuffer("select * from TECH_ZHISHI where 1=1 ");
+        StringBuffer buffer = new StringBuffer("select *,FROM_UNIXTIME(left( create_time,10), '%Y-%m-%d' ) as createTime from TECH_ZHISHI where 1=1 ");
         if (StringUtil.isNotBlank(zhuan.getTitle())) {
             buffer.append(" and title like '%").append(zhuan.getTitle()).append("%'");
         }

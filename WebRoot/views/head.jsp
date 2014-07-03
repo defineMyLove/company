@@ -51,7 +51,7 @@ swfobject.embedSWF("http://www.virb.com/external/video/59984/MsOGibJlcnVwzc26YS7
 
 		</ul>
 	</li>
-	<li><a href="${path}/toView?view=products" class="dir">产品销售</a>
+	<li><a href="${path}/page/products" class="dir">产品销售</a>
 		<ul>
 			
 		</ul>

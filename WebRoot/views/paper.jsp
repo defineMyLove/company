@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'about.jsp' starting page</title>
+    <title>论文专栏</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <display:column title="标题" >
                         <a href="${path}/page/lunwenDetail?id=${new.id}">${new.title}</a>
                     </display:column>
-                    <display:column title="日期" property="create_time"></display:column>
+                    <display:column title="日期" property="createTime"></display:column>
                 </display:table>
             </div>
 	  	</div>

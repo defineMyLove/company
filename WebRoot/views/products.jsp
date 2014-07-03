@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'about.jsp' starting page</title>
+    <title>产品销售</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -22,6 +22,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<link rel="stylesheet" href="<%=basePath%>/static/css/style.css" type="text/css"></link>
 	<link rel="stylesheet" href="<%=basePath%>/static/css/leftna.css" type="text/css"></link>
+
+      <style type="text/css">
+          #cpxsz {
+              background-image: url("../images/tb10.gif");
+              background-position: left center;
+              background-repeat: no-repeat;
+              color: #4C4C4C;
+              float: left;
+              line-height: 22px;
+              padding-left: 30px;
+              text-align: left;
+              width: 600px;
+              list-style-type: none;
+              margin: 0 auto;
+              font-size: 12px;
+          }
+
+      </style>
   </head>
   
   <body>
@@ -43,33 +61,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	<div class="wenben2">
 		  	<div class="navbox">
 						<ul class="nav">
-						<li><a href="">演播室摄像机</a></li>
-						<li><a href="">数字(制作)特技切换台</a></li>
-						<li><a href="">播出切换台</a></li>
-						<li><a href="">视音频矩阵</a></li>
-						<li><a href="">射频(周边及)矩阵</a></li>
-						<li><a href="">多画面分割器</a></li>
-						<li><a href="">监视器及大屏</a></li>
-						<li><a href="">同步及测试仪器</a></li>
-						<li><a href="">(内部)通话(设备)</a></li>
-						<li><a href="">音频监听</a></li>
-						<li><a href="">响度控制器</a></li>
-						<li><a href="">2×1切换器</a></li>
-						<li><a href="">键控器</a></li>
-						<li><a href="">GPI遥控面板</a></li>
-						<li><a href="">延时器</a></li>
-						<li><a href="">视音频周边</a></li>
-						<li><a href="">TALLY&UMD(系统)</a></li>
-						<li><a href="">转播车天线</a></li>
-						<li><a href="">转播车高功放</a></li>
-						<li><a href="">编解码器</a></li>
-						<li><a href="">复用器</a></li>
-						<li><a href="">调制器</a></li>
-						<li><a href="">卫星接收机</a></li>
-						<li><a href="">(各类)光端机</a></li>
-						<li><a href="">光纤分配切换器</a></li>
-						<li><a href="">线材及连接器</a></li>
-						<li><a href="">其他</a></li>
+                            <c:forEach items="${newList}" var="new">
+                                <li><a href="${path}/page/product?id=${new.id}">${new.name}</a></li>
+                            </c:forEach>
 					    </ul>
 				</div>
 	  	</div>
@@ -79,8 +73,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  		<table class="biaoge" >
 	  	    <tr><td>产品销售</td></tr>
 	  	    </table>
-	  	    
-	  		<img src="<%=basePath%>/static/images/chanpinzhanshi.png"></img>
+<c:forEach items="${productList}" var="product">
+    <div style="width:600px; float:left;" id="cpxs">
+        <div>
+            <div tabindex="0" style="CURSOR: pointer; HEIGHT: 20px">
+                <li id="cpxsz">${product.name}</li></div>
+            <div style="width:700px;">
+                <table width="700" border="0" align="left">
+                    <tbody>
+                    <c:forEach items="${product.chird}" var="n">
+                    <tr>
+                        <td width="17" valign="top" align="right" style="PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px"><!--&nbsp;<img src="imgs/interface/li_GRA.gif" width="12" height="13" />--></td>
+                        <td width="200" valign="top" align="left" style="PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; PADDING-TOP: 1px"><a href="p3.asp?SortID=263">
+                            <strong style="COLOR: #489700">${n.name}</strong></a></td>
+                        <td width="400" valign="top" align="left" style="PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; PADDING-TOP: 1px"><span style="FONT: 12px sans-serif">${n.des}</span></td></tr>
+                    </tr>
+                        </c:forEach>
+                    </tbody></table></div></div>
+    </div>
+</c:forEach>
+
 	  	</div>
   	</div>
   	

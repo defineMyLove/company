@@ -52,4 +52,21 @@ public class SolutionClassifyService {
     public List<Map> getAll(String id) {
         return baseDao.queryForList("select * from FANGAN_FENLEI  order by order_no,create_time desc");
     }
+
+    public List<Map> find(FANGAN_FENLEI fangan, int i) {
+        StringBuffer buffer = new StringBuffer("select * from FANGAN_FENLEI where 1=1 ");
+        if (StringUtil.isNotBlank(fangan.getName())) {
+            buffer.append(" and name like '%").append(fangan.getName()).append("%'");
+        }
+        buffer.append(" order by create_time desc");
+        Map resultMap= baseDao.queryForDataGrid(1,10, buffer.toString(), new SqlParameter());
+        return (List<Map>) resultMap.get("rows");
+    }
+
+    public List<Map> findAll() {
+        StringBuffer buffer = new StringBuffer("select * from FANGAN_FENLEI where 1=1 ");
+        buffer.append(" order by order_no,create_time desc");
+        return baseDao.queryForList(buffer.toString());
+
+    }
 }

@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head> 
     <base href="<%=basePath%>">
     
-    <title>My JSP 'about.jsp' starting page</title>
+    <title>解决方案</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -22,6 +22,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<link rel="stylesheet" href="<%=basePath%>/static/css/style.css" type="text/css"></link>
 	<link rel="stylesheet" href="<%=basePath%>/static/css/leftna.css" type="text/css"></link>
+
+      <style type="text/css">
+          #ybskb {
+              border-bottom: 1px solid #CCCCCC;
+              float: left;
+              height: 110px;
+              margin-bottom: 30px;
+              margin-right: 5px;
+              text-align: left;
+              width: 290px;
+          }
+          a {
+              text-decoration: none;
+              color: #000000
+          }
+          .lanzad {
+              color: #000000;
+              font-size: 12px;
+              font-weight: bold;
+              letter-spacing: -1px;
+              line-height: 28px;
+          }
+      </style>
   </head>
   
   <body>
@@ -56,11 +79,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	    </table>
             <div class="ui-table-container">
                 <c:if test="${!empty infos}">
-                 <c:forEach items="${infos}" var="info">
-                     <div>
-                         ${info.name}
-                             <img style="height:195px; width:285px; margin-left:13px;" src="${path}${info.pic_path}"/>
-                     </div>
+                    <c:forEach items="${infos}" var="info">
+                    <div id="ybskb"><table width="290" border="0" cellspacing="0" cellpadding="0">
+                    <tbody><tr>
+                        <td align="left" class="lanzad" colspan="2"><a target="_blank" href="${path}/page/solutionDetail?id=${info.id}">${info.name}</a></td>
+                    </tr>
+                    <tr>
+                        <td width="105" valign="top" height="80" align="center">
+                            <div id="ybsbk"><img width="92" height="64" src="${path}${info.pic_path}"></div></td>
+                        <td width="185" valign="top" class="heiz">
+                            </td>
+                    </tr>
+                    </tbody></table>
+                </div>
                  </c:forEach>
                 </c:if>
             </div>
