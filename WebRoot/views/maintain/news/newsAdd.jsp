@@ -67,7 +67,7 @@
                     </td>
                     <td width="30%" style="text-align: left;">
                         <textarea rows="20" cols="10" name="content" id="content">${info.content}</textarea>
-                    </td>
+                olution    </td>
                 </tr>
             </table>
             <table style="width: 98%;margin-buttom: 5px;">

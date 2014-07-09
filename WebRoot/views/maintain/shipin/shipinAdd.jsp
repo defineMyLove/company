@@ -21,7 +21,8 @@
                 form: "showForm",
                 rules: {
                     "title": {required: true,maxlength:50}
-                   <c:if test="${empty info.id}">,"content": {required: true}</c:if>
+                    "content": {required: true},
+                    "pic": {required: true}
                 },
                 submitHandler: function (form) {
                     form.submit();
@@ -60,6 +61,14 @@
                     </td>
                     <td width="30%" style="text-align: left;">
                         <input type="file" class="text" name="content" id="content" value="${info.content}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" class="tabRight required">
+                        视频
+                    </td>
+                    <td width="30%" style="text-align: left;">
+                        <input type="file" class="text" name="pic" id="pic" value="${info.pic}"/>
                     </td>
                 </tr>
             </table>

@@ -28,8 +28,7 @@
                 form: "showForm",
                 rules: {
                     "title": {required: true,maxlength:50},
-                    "order_no": {required: true},
-                    "type": {required: true}
+                    "order_no": {required: true}
                 },
                 submitHandler: function (form) {
                     form.submit();
@@ -61,17 +60,6 @@
                         <input type="text" class="text" name="name" id="name" value="${info.name}"/>
                     </td>
 
-                </tr>
-                <tr>
-                    <td width="20%" class="tabRight required">
-                        类型
-                    </td>
-                    <td width="30%" style="text-align: left;">
-                        <select name ="type">
-                            <option value="1" <c:if test="info.type=1">selected </c:if>>文字</option>
-                            <option value="2" <c:if test="info.type=2">selected </c:if>>图片</option>
-                        </select>
-                    </td>
                 </tr>
                 <tr>
                     <td width="20%" class="tabRight required">

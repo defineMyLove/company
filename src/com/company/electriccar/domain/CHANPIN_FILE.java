@@ -18,16 +18,16 @@ import org.apache.commons.lang.StringUtils;
 /**
  * 
  */
-public class SYS_USER extends BaseBean{
+public class CHANPIN_FILE extends BaseBean{
 
 	public final static Map<String, String> KEYS = new HashMap<String, String>();
 	private Map BEAN_VALUES = null;
 	
 	static {
 		KEYS.put("id", "String");
+		KEYS.put("path", "String");
 		KEYS.put("name", "String");
-		KEYS.put("pwd", "String");
-		KEYS.put("userid", "String");
+		KEYS.put("chanpin_id", "String");
 	}
 	public Map getColumnMap(){
 		return KEYS;
@@ -36,26 +36,26 @@ public class SYS_USER extends BaseBean{
 	private String id;
 	private Boolean isSetted_id = false;;
 	
+	private String path;
+	private Boolean isSetted_path = false;
 	private String name;
 	private Boolean isSetted_name = false;
-	private String pwd;
-	private Boolean isSetted_pwd = false;
-	private String userid;
-	private Boolean isSetted_userid = false;
+	private String chanpin_id;
+	private Boolean isSetted_chanpin_id = false;
 
 	private void initBeanValues(){
 		BEAN_VALUES = new HashMap<String, Object>();
 		BEAN_VALUES.put("id",id);
+			BEAN_VALUES.put("path", null);
 			BEAN_VALUES.put("name", null);
-			BEAN_VALUES.put("pwd", null);
-			BEAN_VALUES.put("userid", null);
+			BEAN_VALUES.put("chanpin_id", null);
 	}
 	
-	public SYS_USER() {
+	public CHANPIN_FILE() {
 		initBeanValues();
 	}
 	
-	public SYS_USER(String id) {
+	public CHANPIN_FILE(String id) {
 		super();
 		this.id = id;
 		initBeanValues();
@@ -71,7 +71,7 @@ public class SYS_USER extends BaseBean{
 	/**
      * 设置ID
      */
-	public SYS_USER setId(String id) {
+	public CHANPIN_FILE setId(String id) {
 		this.id = id;
 		this.isSetted_id = true;
 		BEAN_VALUES.put("id",id);
@@ -80,15 +80,15 @@ public class SYS_USER extends BaseBean{
 	
 	@Override
 	public String getUpdateSql() {
-		StringBuffer sBuffer = new StringBuffer("update SYS_USER set ");
+		StringBuffer sBuffer = new StringBuffer("update CHANPIN_FILE set ");
+			if (isSetted_path) {
+				sBuffer.append("path=:path,");
+			}
 			if (isSetted_name) {
 				sBuffer.append("name=:name,");
 			}
-			if (isSetted_pwd) {
-				sBuffer.append("pwd=:pwd,");
-			}
-			if (isSetted_userid) {
-				sBuffer.append("userid=:userid,");
+			if (isSetted_chanpin_id) {
+				sBuffer.append("chanpin_id=:chanpin_id,");
 			}
 		String sql = sBuffer.toString();
 		return StringUtils.removeEnd(sql, ",") + " where id=:id";
@@ -97,20 +97,37 @@ public class SYS_USER extends BaseBean{
 	
 	@Override
 	public String getInsertSql() {
-		StringBuffer sBuffer = new StringBuffer("insert into SYS_USER(");
+		StringBuffer sBuffer = new StringBuffer("insert into CHANPIN_FILE(");
 		StringBuffer fileds = new StringBuffer("id,");
 		StringBuffer values = new StringBuffer(":id,");		
+			fileds.append("path,");
+			values.append(":path,");
 			fileds.append("name,");
 			values.append(":name,");
-			fileds.append("pwd,");
-			values.append(":pwd,");
-			fileds.append("userid,");
-			values.append(":userid,");
+			fileds.append("chanpin_id,");
+			values.append(":chanpin_id,");
 		sBuffer.append(StringUtils.removeEnd(fileds.toString(), ",") + ") values("+StringUtils.removeEnd(values.toString(), ",")+")");
 		return sBuffer.toString();
 	}
 	
 
+		/**
+		 * 获取<BR/>
+		 * 䣺2014-48-09 hh:07
+		 */
+		public String getPath() {
+			return path;
+		}
+		/**
+		 * 设置<BR/>
+		 * 2014-48-09 hh:07
+		 */
+		public CHANPIN_FILE setPath(String path) {
+			this.path = path;
+			this.isSetted_path = true;
+			BEAN_VALUES.put("path",path);
+			return this;
+		}
 		/**
 		 * 获取<BR/>
 		 * 䣺2014-48-09 hh:07
@@ -122,7 +139,7 @@ public class SYS_USER extends BaseBean{
 		 * 设置<BR/>
 		 * 2014-48-09 hh:07
 		 */
-		public SYS_USER setName(String name) {
+		public CHANPIN_FILE setName(String name) {
 			this.name = name;
 			this.isSetted_name = true;
 			BEAN_VALUES.put("name",name);
@@ -132,34 +149,17 @@ public class SYS_USER extends BaseBean{
 		 * 获取<BR/>
 		 * 䣺2014-48-09 hh:07
 		 */
-		public String getPwd() {
-			return pwd;
+		public String getChanpin_id() {
+			return chanpin_id;
 		}
 		/**
 		 * 设置<BR/>
 		 * 2014-48-09 hh:07
 		 */
-		public SYS_USER setPwd(String pwd) {
-			this.pwd = pwd;
-			this.isSetted_pwd = true;
-			BEAN_VALUES.put("pwd",pwd);
-			return this;
-		}
-		/**
-		 * 获取<BR/>
-		 * 䣺2014-48-09 hh:07
-		 */
-		public String getUserid() {
-			return userid;
-		}
-		/**
-		 * 设置<BR/>
-		 * 2014-48-09 hh:07
-		 */
-		public SYS_USER setUserid(String userid) {
-			this.userid = userid;
-			this.isSetted_userid = true;
-			BEAN_VALUES.put("userid",userid);
+		public CHANPIN_FILE setChanpin_id(String chanpin_id) {
+			this.chanpin_id = chanpin_id;
+			this.isSetted_chanpin_id = true;
+			BEAN_VALUES.put("chanpin_id",chanpin_id);
 			return this;
 		}
 
@@ -174,7 +174,7 @@ public class SYS_USER extends BaseBean{
 		}
 	
 		@Override
-		public SYS_USER getInstanceById() {
+		public CHANPIN_FILE getInstanceById() {
 			if (StringUtils.isBlank(id)) {
 				throw new RuntimeException("获取Bean时ID不能为空");
 			}
@@ -184,19 +184,19 @@ public class SYS_USER extends BaseBean{
 		
 		
 		@Override
-		public SYS_USER queryForBean() {
-			StringBuffer sBuffer = new StringBuffer("select * from SYS_USER where ");
+		public CHANPIN_FILE queryForBean() {
+			StringBuffer sBuffer = new StringBuffer("select * from CHANPIN_FILE where ");
 			if(isSetted_id){
 				sBuffer.append("id=:id and ");
 			}
+				if (isSetted_path) {
+					sBuffer.append("path=:path and ");
+				}
 				if (isSetted_name) {
 					sBuffer.append("name=:name and ");
 				}
-				if (isSetted_pwd) {
-					sBuffer.append("pwd=:pwd and ");
-				}
-				if (isSetted_userid) {
-					sBuffer.append("userid=:userid and ");
+				if (isSetted_chanpin_id) {
+					sBuffer.append("chanpin_id=:chanpin_id and ");
 				}
 			String sql = sBuffer.toString();
 			sql = StringUtils.removeEnd(sql, " and ");
@@ -205,7 +205,7 @@ public class SYS_USER extends BaseBean{
 	
 		@Override
 		public String getTableName() {
-			return "SYS_USER";
+			return "CHANPIN_FILE";
 		}
 		
 		
@@ -214,7 +214,7 @@ public class SYS_USER extends BaseBean{
 		}
 	
 		@Override
-		public SYS_USER insert() {
+		public CHANPIN_FILE insert() {
 			if (StringUtils.isBlank(id)) {
 				this.setId(StringUtil.getUUID());
 			}
@@ -223,7 +223,7 @@ public class SYS_USER extends BaseBean{
 		}
 	
 		@Override
-		public SYS_USER update() {
+		public CHANPIN_FILE update() {
 			if (StringUtils.isBlank(id)) {
 				throw new RuntimeException("更新Bean时ID不能为空");
 			}
@@ -231,7 +231,7 @@ public class SYS_USER extends BaseBean{
 			return this;
 		}  
 		
-		public SYS_USER insertOrUpdate(){
+		public CHANPIN_FILE insertOrUpdate(){
 			if (StringUtils.isNotBlank(id)) {
 				return update();
 			} else {
@@ -248,7 +248,7 @@ public class SYS_USER extends BaseBean{
 				throw new RuntimeException("ID不能为空!");
 			}
 			
-			return dao.queryForMap("select * from SYS_USER where id=:id",BEAN_VALUES);
+			return dao.queryForMap("select * from CHANPIN_FILE where id=:id",BEAN_VALUES);
 		}
 
 		public Object mapRow(ResultSet rs, int rownum) throws SQLException {
@@ -256,15 +256,15 @@ public class SYS_USER extends BaseBean{
 			this.setId(ConvertUtil.obj2Str(id));
 			BEAN_VALUES.put("id",id);
 			Object obj = null;
+			obj = rs.getObject("PATH");
+			BEAN_VALUES.put("path",obj);
+				this.setPath(ConvertUtil.obj2Str(obj));
 			obj = rs.getObject("NAME");
 			BEAN_VALUES.put("name",obj);
 				this.setName(ConvertUtil.obj2Str(obj));
-			obj = rs.getObject("PWD");
-			BEAN_VALUES.put("pwd",obj);
-				this.setPwd(ConvertUtil.obj2Str(obj));
-			obj = rs.getObject("USERID");
-			BEAN_VALUES.put("userid",obj);
-				this.setUserid(ConvertUtil.obj2Str(obj));
+			obj = rs.getObject("CHANPIN_ID");
+			BEAN_VALUES.put("chanpin_id",obj);
+				this.setChanpin_id(ConvertUtil.obj2Str(obj));
 			return this;
 		}
 		
@@ -279,8 +279,8 @@ public class SYS_USER extends BaseBean{
 			return sb.toString();
 		}
 		
-		public SYS_USER newInstance(){
-			return new SYS_USER();
+		public CHANPIN_FILE newInstance(){
+			return new CHANPIN_FILE();
 		}
 
 

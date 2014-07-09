@@ -149,14 +149,14 @@ public class CHANPIN_INFO extends BaseBean{
 
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getName() {
 			return name;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public CHANPIN_INFO setName(String name) {
 			this.name = name;
@@ -166,14 +166,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getAtta_name() {
 			return atta_name;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public CHANPIN_INFO setAtta_name(String atta_name) {
 			this.atta_name = atta_name;
@@ -183,14 +183,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getAtta_path() {
 			return atta_path;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public CHANPIN_INFO setAtta_path(String atta_path) {
 			this.atta_path = atta_path;
@@ -200,14 +200,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getDes() {
 			return des;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public CHANPIN_INFO setDes(String des) {
 			this.des = des;
@@ -217,14 +217,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getFenlei_id() {
 			return fenlei_id;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public CHANPIN_INFO setFenlei_id(String fenlei_id) {
 			this.fenlei_id = fenlei_id;
@@ -234,14 +234,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public Integer getOrder_no() {
 			return order_no;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public CHANPIN_INFO setOrder_no(Integer order_no) {
 			this.order_no = order_no;
@@ -251,14 +251,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public Long getCreate_time() {
 			return create_time;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public CHANPIN_INFO setCreate_time(Long create_time) {
 			this.create_time = create_time;

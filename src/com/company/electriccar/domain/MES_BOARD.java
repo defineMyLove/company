@@ -176,14 +176,14 @@ public class MES_BOARD extends BaseBean{
 
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-56-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getUser_name() {
 			return user_name;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-56-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public MES_BOARD setUser_name(String user_name) {
 			this.user_name = user_name;
@@ -193,14 +193,14 @@ public class MES_BOARD extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-56-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getWork_name() {
 			return work_name;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-56-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public MES_BOARD setWork_name(String work_name) {
 			this.work_name = work_name;
@@ -210,14 +210,14 @@ public class MES_BOARD extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-56-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getCompany_nam() {
 			return company_nam;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-56-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public MES_BOARD setCompany_nam(String company_nam) {
 			this.company_nam = company_nam;
@@ -227,14 +227,14 @@ public class MES_BOARD extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-56-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getCompany_address() {
 			return company_address;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-56-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public MES_BOARD setCompany_address(String company_address) {
 			this.company_address = company_address;
@@ -244,14 +244,14 @@ public class MES_BOARD extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-56-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getCompany_youbian() {
 			return company_youbian;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-56-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public MES_BOARD setCompany_youbian(String company_youbian) {
 			this.company_youbian = company_youbian;
@@ -261,14 +261,14 @@ public class MES_BOARD extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-56-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getEmail() {
 			return email;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-56-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public MES_BOARD setEmail(String email) {
 			this.email = email;
@@ -278,14 +278,14 @@ public class MES_BOARD extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-56-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getCompany_tel() {
 			return company_tel;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-56-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public MES_BOARD setCompany_tel(String company_tel) {
 			this.company_tel = company_tel;
@@ -295,14 +295,14 @@ public class MES_BOARD extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-56-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getCompany_chuanzhen() {
 			return company_chuanzhen;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-56-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public MES_BOARD setCompany_chuanzhen(String company_chuanzhen) {
 			this.company_chuanzhen = company_chuanzhen;
@@ -312,14 +312,14 @@ public class MES_BOARD extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-56-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getContent() {
 			return content;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-56-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public MES_BOARD setContent(String content) {
 			this.content = content;
@@ -329,14 +329,14 @@ public class MES_BOARD extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-56-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public Long getCreate_time() {
 			return create_time;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-56-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public MES_BOARD setCreate_time(Long create_time) {
 			this.create_time = create_time;

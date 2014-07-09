@@ -29,7 +29,7 @@ public class YejiClassifyService {
 
     public Map selectByPk(String id) {
         return
-        baseDao.queryForMap("select * from YEJI_FENLEI where id ='" + id + "'");
+        baseDao.queryForMap("select *,FROM_UNIXTIME(left( create_time,10), '%Y-%m-%d' )  as create_time_str  from YEJI_FENLEI where id ='" + id + "'");
     }
 
     public void deleteById(String id) {

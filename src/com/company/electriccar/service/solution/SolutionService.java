@@ -41,7 +41,7 @@ public class SolutionService {
 
     public Map selectByPk(String id) {
         return
-        baseDao.queryForMap("select * from FANGAN_INFO where id ='" + id + "'");
+        baseDao.queryForMap("select *,FROM_UNIXTIME(left( create_time,10), '%Y-%m-%d' )  as create_time_str  from FANGAN_INFO where id ='" + id + "'");
     }
 
     public void deleteById(String id) {

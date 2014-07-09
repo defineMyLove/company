@@ -15,6 +15,7 @@
         seajs.use(['$', 'jquery-util'], function ($, jqueryUtil) {
             //全局变量
             window.$ = $;
+            addfile() ;
             //表单验证
             jqueryUtil.formValidate({
                 form: "showForm",
@@ -35,6 +36,23 @@
         });
         function submitForm(){
             document.getElementById("submitBtn").click();
+        }
+        function addfile() {
+            var files = $("#files") ;
+
+            var deletefile =  $("#deletefile") ;
+            var context = "<div  style=\"cursor:pointer;\"><input type=\"file\" id=\"file\" name=\"file\">&nbsp;<span id=\"deletefile\"><img title=\"删除\" src=\"${path}/static/images/jian1.png\" style=\" cursor:pointer ;margin: 0px;padding:0px;\"></span></div>" ;
+            $("#addfile").click(function() {
+                if(files.find("input:file").length>4){
+                    alert("最多上传5个附件");
+                    return false;
+                }
+                files.append(context) ;
+            }) ;
+            $("#deletefile").live("click",function() {
+                $(this).parent("div").remove() ;
+            }) ;
+            return false;
         }
         KE.show({
             id: 'content',
@@ -72,8 +90,10 @@
                     <td width="20%" class="tabRight required">
                         图片
                     </td>
-                    <td width="30%" style="text-align: left;">
-                        <input type="file" class="text" name="file" id="file"/>
+                    <td id="files"  width="30%" style="text-align: left;">
+                        <input type="file" id="file" name="file" style="margin: 0px;padding:0px;"/>
+                        <img title="添加"  id="addfile" src="${path}/static/images/jia1.png" style=" cursor:pointer ;margin: 0px;padding:0px;">
+                        <br>
                     </td>
                 </tr>
             </table>

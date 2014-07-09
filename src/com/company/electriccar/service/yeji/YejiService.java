@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -25,23 +26,32 @@ public class YejiService {
     private BaseDao baseDao;
     public void add(YEJI_INFO user, MultipartHttpServletRequest request) {
         if (StringUtil.isBlank(user.getId())) {
-
         user.setCreate_time(new Date().getTime());
         }
-        MultipartFile mFile = request.getFile("file");
-        if (mFile != null && !mFile.isEmpty()) {
-            UpLoadContext upLoad = new UpLoadContext(
-                    new UploadResource());
-            String url = upLoad.uploadFile(mFile, null);
-            String fileName = mFile.getOriginalFilename();
-            user.setContent(url);
-        }
         user.insertOrUpdate();
+       List<MultipartFile>  mFiles = request.getFiles("file");
+        List<SqlParameter> sqlParameters = new ArrayList<SqlParameter>();
+
+        for(MultipartFile mFile:mFiles) {
+            SqlParameter sqlParameter = new SqlParameter();
+            if (mFile != null && !mFile.isEmpty()) {
+                UpLoadContext upLoad = new UpLoadContext(
+                        new UploadResource());
+                String url = upLoad.uploadFile(mFile, null);
+                String fileName = mFile.getOriginalFilename();
+                sqlParameter.addValue("name", fileName).addValue("url",url)
+                .addValue("yeji_id",user.getId()).addValue("id",StringUtil.getUUID());
+                sqlParameters.add(sqlParameter);
+            }
+        }
+        if (!sqlParameters.isEmpty()) {
+        baseDao.executeBatch("insert into yeji_file(id,path,name,yeji_id) values(:id,:url,:name,:yeji_id)",sqlParameters);
+        }
     }
 
     public Map selectByPk(String id) {
         return
-        baseDao.queryForMap("select * from YEJI_INFO where id ='" + id + "'");
+        baseDao.queryForMap("select *,FROM_UNIXTIME(left( create_time,10), '%Y-%m-%d' )  as create_time_str  from YEJI_INFO where id ='" + id + "'");
     }
 
     public void deleteById(String id) {

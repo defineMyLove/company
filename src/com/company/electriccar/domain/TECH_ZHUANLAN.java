@@ -122,14 +122,14 @@ public class TECH_ZHUANLAN extends BaseBean{
 
 		/**
 		 * 获取标题<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getTitle() {
 			return title;
 		}
 		/**
 		 * 设置标题<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public TECH_ZHUANLAN setTitle(String title) {
 			this.title = title;
@@ -139,14 +139,14 @@ public class TECH_ZHUANLAN extends BaseBean{
 		}
 		/**
 		 * 获取内容<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getContent() {
 			return content;
 		}
 		/**
 		 * 设置内容<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public TECH_ZHUANLAN setContent(String content) {
 			this.content = content;
@@ -156,14 +156,14 @@ public class TECH_ZHUANLAN extends BaseBean{
 		}
 		/**
 		 * 获取创建时间<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public Long getCreate_time() {
 			return create_time;
 		}
 		/**
 		 * 设置创建时间<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public TECH_ZHUANLAN setCreate_time(Long create_time) {
 			this.create_time = create_time;
@@ -173,14 +173,14 @@ public class TECH_ZHUANLAN extends BaseBean{
 		}
 		/**
 		 * 获取浏览次数<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public Integer getQuery_count() {
 			return query_count;
 		}
 		/**
 		 * 设置浏览次数<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public TECH_ZHUANLAN setQuery_count(Integer query_count) {
 			this.query_count = query_count;

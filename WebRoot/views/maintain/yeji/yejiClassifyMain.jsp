@@ -57,8 +57,7 @@
                 onBeforeShowData: renderFormData,
                 columns: [
                     { display: '名称', name: 'name', align: 'left'},
-                    { display: '创建时间', name: 'create_time', align: 'left'},
-                    { display: '类型', name: 'type', align: 'left'}
+                    { display: '创建时间', name: 'create_time', align: 'left'}
                 ],
                 url: '${path}/maintain/yejiclassify/list',
                 root: 'rows',

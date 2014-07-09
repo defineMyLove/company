@@ -32,16 +32,21 @@ public class ShipinService {
             UpLoadContext upLoad = new UpLoadContext(
                     new UploadResource());
             String url = upLoad.uploadFile(mFile, null);
-            String fileName = mFile.getOriginalFilename();
             user.setFile_path(url);
-
+        }
+        MultipartFile picFile = request.getFile("pic");
+        if (picFile != null && !picFile.isEmpty()) {
+            UpLoadContext upLoad = new UpLoadContext(
+                    new UploadResource());
+            String url = upLoad.uploadFile(picFile, null);
+            user.setPic_path(url);
+        }
         user.insertOrUpdate();
-    }
     }
 
     public Map selectByPk(String id) {
         return
-        baseDao.queryForMap("select * from SHIPIN_INFO where id ='" + id + "'");
+        baseDao.queryForMap("select *,FROM_UNIXTIME(left( create_time,10), '%Y-%m-%d' )  as create_time_str  from SHIPIN_INFO where id ='" + id + "'");
     }
 
     public void deleteById(String id) {
@@ -52,7 +57,7 @@ public class ShipinService {
 
     public Map find(SHIPIN_INFO zhuan, HttpServletRequest request) {
         StringBuffer buffer = new StringBuffer("select * from SHIPIN_INFO where 1=1 ");
-        if (StringUtil.isNotBlank(zhuan.getTitle())) {
+        if (SyetringUtil.isNotBlank(zhuan.getTitle())) {
             buffer.append(" and title like '%").append(zhuan.getTitle()).append("%'");
         }
         buffer.append(" order by create_time desc");

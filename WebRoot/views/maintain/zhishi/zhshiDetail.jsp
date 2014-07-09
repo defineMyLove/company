@@ -26,17 +26,10 @@
                        创建时间
                     </td>
                     <td width="30%" style="text-align: left;">
-                            ${info.create_time}
+                            ${info.create_time_str}
                     </td>
                 </tr>
-                <tr>
-                    <td width="20%" class="tabRight required">
-                       浏览次数
-                    </td>
-                    <td width="30%" style="text-align: left;">
-                            ${info.query_count}
-                    </td>
-                </tr>
+
                 <tr>
                     <td width="20%" class="tabRight required">
                         内容

@@ -26,7 +26,7 @@
                        创建时间
                     </td>
                     <td width="30%" style="text-align: left;">
-                            ${info.create_time}
+                            ${info.create_time_str}
                     </td>
                 </tr>
                 <tr>

@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -29,16 +30,25 @@ public class ProductService {
 
         user.setCreate_time(new Date().getTime());
         }
-        MultipartFile mFile = request.getFile("file");
-        if (mFile != null && !mFile.isEmpty()) {
-            UpLoadContext upLoad = new UpLoadContext(
-                    new UploadResource());
-            String url = upLoad.uploadFile(mFile, null);
-            String fileName = mFile.getOriginalFilename();
-            user.setAtta_path(url);
-            user.setAtta_name(fileName);
-        }
         user.insertOrUpdate();
+        List<MultipartFile>  mFiles = request.getFiles("file");
+        List<SqlParameter> sqlParameters = new ArrayList<SqlParameter>();
+        for(MultipartFile mFile:mFiles) {
+            SqlParameter sqlParameter = new SqlParameter();
+            if (mFile != null && !mFile.isEmpty()) {
+                UpLoadContext upLoad = new UpLoadContext(
+                        new UploadResource());
+                String url = upLoad.uploadFile(mFile, null);
+                String fileName = mFile.getOriginalFilename();
+                sqlParameter.addValue("name", fileName).addValue("url",url)
+                        .addValue("chanpin_id",user.getId()).addValue("id",StringUtil.getUUID());
+                sqlParameters.add(sqlParameter);
+            }
+        }
+        if (!sqlParameters.isEmpty()) {
+            baseDao.executeBatch("insert into chanpin_file(id,path,name,chanpin_id) values(:id,:url,:name,:chanpin_id)", sqlParameters);
+        }
+
     }
 
     public Map selectByPk(String id) {

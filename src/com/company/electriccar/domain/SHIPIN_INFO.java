@@ -30,6 +30,7 @@ public class SHIPIN_INFO extends BaseBean{
 		KEYS.put("create_time", "Long");
 		KEYS.put("query_count", "Integer");
 		KEYS.put("file_path", "String");
+		KEYS.put("pic_path", "String");
 	}
 	public Map getColumnMap(){
 		return KEYS;
@@ -48,6 +49,8 @@ public class SHIPIN_INFO extends BaseBean{
 	private Boolean isSetted_query_count = false;
 	private String file_path;
 	private Boolean isSetted_file_path = false;
+	private String pic_path;
+	private Boolean isSetted_pic_path = false;
 
 	private void initBeanValues(){
 		BEAN_VALUES = new HashMap<String, Object>();
@@ -57,6 +60,7 @@ public class SHIPIN_INFO extends BaseBean{
 			BEAN_VALUES.put("create_time", null);
 			BEAN_VALUES.put("query_count", null);
 			BEAN_VALUES.put("file_path", null);
+			BEAN_VALUES.put("pic_path", null);
 	}
 	
 	public SHIPIN_INFO() {
@@ -104,6 +108,9 @@ public class SHIPIN_INFO extends BaseBean{
 			if (isSetted_file_path) {
 				sBuffer.append("file_path=:file_path,");
 			}
+			if (isSetted_pic_path) {
+				sBuffer.append("pic_path=:pic_path,");
+			}
 		String sql = sBuffer.toString();
 		return StringUtils.removeEnd(sql, ",") + " where id=:id";
 	}
@@ -124,6 +131,8 @@ public class SHIPIN_INFO extends BaseBean{
 			values.append(":query_count,");
 			fileds.append("file_path,");
 			values.append(":file_path,");
+			fileds.append("pic_path,");
+			values.append(":pic_path,");
 		sBuffer.append(StringUtils.removeEnd(fileds.toString(), ",") + ") values("+StringUtils.removeEnd(values.toString(), ",")+")");
 		return sBuffer.toString();
 	}
@@ -131,14 +140,14 @@ public class SHIPIN_INFO extends BaseBean{
 
 		/**
 		 * 获取标题<BR/>
-		 * 䣺2014-15-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getTitle() {
 			return title;
 		}
 		/**
 		 * 设置标题<BR/>
-		 * 2014-15-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public SHIPIN_INFO setTitle(String title) {
 			this.title = title;
@@ -148,14 +157,14 @@ public class SHIPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取内容<BR/>
-		 * 䣺2014-15-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getDes() {
 			return des;
 		}
 		/**
 		 * 设置内容<BR/>
-		 * 2014-15-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public SHIPIN_INFO setDes(String des) {
 			this.des = des;
@@ -165,14 +174,14 @@ public class SHIPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取创建时间<BR/>
-		 * 䣺2014-15-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public Long getCreate_time() {
 			return create_time;
 		}
 		/**
 		 * 设置创建时间<BR/>
-		 * 2014-15-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public SHIPIN_INFO setCreate_time(Long create_time) {
 			this.create_time = create_time;
@@ -182,14 +191,14 @@ public class SHIPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取浏览次数<BR/>
-		 * 䣺2014-15-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public Integer getQuery_count() {
 			return query_count;
 		}
 		/**
 		 * 设置浏览次数<BR/>
-		 * 2014-15-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public SHIPIN_INFO setQuery_count(Integer query_count) {
 			this.query_count = query_count;
@@ -199,19 +208,36 @@ public class SHIPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-15-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getFile_path() {
 			return file_path;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-15-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public SHIPIN_INFO setFile_path(String file_path) {
 			this.file_path = file_path;
 			this.isSetted_file_path = true;
 			BEAN_VALUES.put("file_path",file_path);
+			return this;
+		}
+		/**
+		 * 获取<BR/>
+		 * 䣺2014-48-09 hh:07
+		 */
+		public String getPic_path() {
+			return pic_path;
+		}
+		/**
+		 * 设置<BR/>
+		 * 2014-48-09 hh:07
+		 */
+		public SHIPIN_INFO setPic_path(String pic_path) {
+			this.pic_path = pic_path;
+			this.isSetted_pic_path = true;
+			BEAN_VALUES.put("pic_path",pic_path);
 			return this;
 		}
 
@@ -255,6 +281,9 @@ public class SHIPIN_INFO extends BaseBean{
 				}
 				if (isSetted_file_path) {
 					sBuffer.append("file_path=:file_path and ");
+				}
+				if (isSetted_pic_path) {
+					sBuffer.append("pic_path=:pic_path and ");
 				}
 			String sql = sBuffer.toString();
 			sql = StringUtils.removeEnd(sql, " and ");
@@ -329,6 +358,9 @@ public class SHIPIN_INFO extends BaseBean{
 			obj = rs.getObject("FILE_PATH");
 			BEAN_VALUES.put("file_path",obj);
 				this.setFile_path(ConvertUtil.obj2Str(obj));
+			obj = rs.getObject("PIC_PATH");
+			BEAN_VALUES.put("pic_path",obj);
+				this.setPic_path(ConvertUtil.obj2Str(obj));
 			return this;
 		}
 		

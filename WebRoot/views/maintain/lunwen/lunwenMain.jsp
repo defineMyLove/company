@@ -58,8 +58,7 @@
                 columns: [
                     { display: '标题', name: 'title', align: 'left'},
                     { display: '创建时间', name: 'create_time', align: 'left'},
-                    { display: '内容', name: 'content', align: 'left'},
-                    { display: '阅览数', name: 'query_count', align: 'left' }
+                    { display: '内容', name: 'content', align: 'left'}
                 ],
                 url: '${path}/maintain/lunwen/list',
                 root: 'rows',

@@ -131,14 +131,14 @@ public class YEJI_INFO extends BaseBean{
 
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getName() {
 			return name;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public YEJI_INFO setName(String name) {
 			this.name = name;
@@ -148,14 +148,14 @@ public class YEJI_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getContent() {
 			return content;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public YEJI_INFO setContent(String content) {
 			this.content = content;
@@ -165,14 +165,14 @@ public class YEJI_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public String getFenlei_id() {
 			return fenlei_id;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public YEJI_INFO setFenlei_id(String fenlei_id) {
 			this.fenlei_id = fenlei_id;
@@ -182,14 +182,14 @@ public class YEJI_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public Integer getOrder_no() {
 			return order_no;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public YEJI_INFO setOrder_no(Integer order_no) {
 			this.order_no = order_no;
@@ -199,14 +199,14 @@ public class YEJI_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-04-22 hh:06
+		 * 䣺2014-48-09 hh:07
 		 */
 		public Long getCreate_time() {
 			return create_time;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-04-22 hh:06
+		 * 2014-48-09 hh:07
 		 */
 		public YEJI_INFO setCreate_time(Long create_time) {
 			this.create_time = create_time;

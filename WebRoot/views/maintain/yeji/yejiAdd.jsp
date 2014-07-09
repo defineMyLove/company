@@ -12,9 +12,11 @@
         if('${msg}'){
             top.common.tip.notify({title:'${msg}'});
         }
-        seajs.use(['$', 'jquery-util'], function ($, jqueryUtile) {
+        seajs.use(['$', 'jquery-util'], function ($, jqueryUtil) {
             //全局变量
             window.$ = $;
+            addfile() ;
+
             //表单验证
             jqueryUtil.formValidate({
                 form: "showForm",
@@ -35,6 +37,23 @@
         });
         function submitForm(){
             document.getElementById("submitBtn").click();
+        }
+        function addfile() {
+            var files = $("#files") ;
+
+            var deletefile =  $("#deletefile") ;
+            var context = "<div  style=\"cursor:pointer;\"><input type=\"file\" id=\"file\" name=\"file\">&nbsp;<span id=\"deletefile\"><img title=\"删除\" src=\"${path}/static/images/jian1.png\" style=\" cursor:pointer ;margin: 0px;padding:0px;\"></span></div>" ;
+            $("#addfile").click(function() {
+                if(files.find("input:file").length>4){
+                    alert("最多上传5个附件");
+                    return false;
+                }
+                files.append(context) ;
+            }) ;
+            $("#deletefile").live("click",function() {
+                $(this).parent("div").remove() ;
+            }) ;
+            return false;
         }
     </script>
 </head>
@@ -59,7 +78,6 @@
                         内容
                     </td>
                     <td width="30%" style="text-align: left;">
-                        <c:if  test="${classify.type==1}">
                             <input type="text" class="text" name="content" id="content" value="${info.content}"/>
                             <script type="text/javascript">
                                 KE.show({
@@ -69,11 +87,17 @@
                                     imageUploadJson: '${path}/maintain/upload/imnage'
                                 });
                             </script>
-                        </c:if>
-                        <c:if  test="${classify.type==2}">
-                            <input type="file" class="text" name="file" id="file"/>
 
-                        </c:if>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" class="tabRight required">
+                        图片
+                    </td>
+                    <td id="files"  width="30%" style="text-align: left;">
+                        <input type="file" id="file" name="file" style="margin: 0px;padding:0px;"/>
+                        <img title="添加"  id="addfile" src="${path}/static/images/jia1.png" style=" cursor:pointer ;margin: 0px;padding:0px;">
+                        <br>
                     </td>
                 </tr>
             </table>
@@ -81,6 +105,7 @@
                 <tr>
                     <td align="center">
                         <input type="submit" id="submitBtn" value="保 存" style="display:none;"/>
+
                     </td>
                 </tr>
             </table>
