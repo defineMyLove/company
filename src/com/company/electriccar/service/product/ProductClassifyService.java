@@ -18,7 +18,7 @@ public class ProductClassifyService {
     @Autowired
     private BaseDao baseDao;
     public List<Map> getAll() {
-        return baseDao.queryForList("select * from CHANPIN_FENLEI order by order_no");
+        return baseDao.queryForList("select * from CHANPIN_FENLEI order by order_no,create_time desc");
     }
 
     public CHANPIN_FENLEI selectByPK(String id) {
@@ -55,6 +55,6 @@ public class ProductClassifyService {
     }
 
     public List<Map> getLevelClassify() {
-        return baseDao.queryForList("select * from CHANPIN_FENLEI where up_id =0");
+        return baseDao.queryForList("select * from CHANPIN_FENLEI where up_id =0 order by order_no,create_time desc");
     }
 }

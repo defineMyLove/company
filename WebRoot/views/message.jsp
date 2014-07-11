@@ -31,6 +31,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       seajs.use(['$', 'jquery-util'], function ($, jqueryUtil,pupZtree) {
           //全局变量
           window.$ = $;
+
+          $.fn.serializeObject = function () {
+              var o = {};
+              var a = this.serializeArray();
+              $.each(a, function () {
+                  if (o[this.name]) {
+                      if (!o[this.name].push) {
+                          o[this.name] = [o[this.name]];
+                      }
+                      o[this.name].push(this.value || '');
+                  } else {
+                      o[this.name] = this.value || '';
+                  }
+              });
+              return o;
+          };
+
           //表单验证
           jqueryUtil.formValidate({
               form: "showForm",
@@ -46,9 +63,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               submitHandler: function (form) {
                   /*form.submit();*/
                   var mainParam = $('#showForm').serializeObject();
-                  $.getJSON('${path}/page/',mainParam,function(){
+                  $.getJSON('${path}/page/addMes',mainParam,function(){
                       alert("谢谢您的留言!");
                   })
+                  return false;
               }
           });
       });
@@ -85,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	    <tr><td>留言板</td></tr>
 	  	    </table>
             <div class="ui-table-container">
-<form id="showForm" method="post" action="${path}/page/addMes">
+<form id="showForm" method="post">
                 <table class="table-add">
                     <tr>
                         <td>您的姓名:</td>

@@ -17,7 +17,7 @@
                         标题
                     </td>
                     <td width="80%" style="text-align: left;">
-                            ${info.title}
+                            ${info.name}
                     </td>
 
                 </tr>
@@ -29,15 +29,6 @@
                             ${info.create_time_str}
                     </td>
                 </tr>
-                <tr>
-                    <td width="20%" class="tabRight required">
-                        类型
-                    </td>
-                    <td width="30%" style="text-align: left;">
-                            ${info.type}
-                    </td>
-                </tr>
-
             </table>
 
         </form:form>

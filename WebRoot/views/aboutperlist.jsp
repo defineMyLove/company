@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'about.jsp' starting page</title>
+    <title>公司业绩</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <display:table name="newList" uid="new" cellpadding="0"
                                cellspacing="0" requestURI="${path }/page/yejilist">
                     <display:column title="${fenlei.name}">
-                       ${new.name}
+                        <a href="${path}/page/yejiDetail?id=${new.id}">${new.name}</a>
                     </display:column>
                 </display:table>
             </div>

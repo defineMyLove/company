@@ -58,7 +58,7 @@ public class SolutionClassifyService {
         if (StringUtil.isNotBlank(fangan.getName())) {
             buffer.append(" and name like '%").append(fangan.getName()).append("%'");
         }
-        buffer.append(" order by create_time desc");
+        buffer.append(" order by order_no,create_time desc");
         Map resultMap= baseDao.queryForDataGrid(1,10, buffer.toString(), new SqlParameter());
         return (List<Map>) resultMap.get("rows");
     }

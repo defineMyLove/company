@@ -9,27 +9,7 @@
     <script src="${path}/static/sea-modules/sea.js"></script>
     <script src="${path}/static/seajs-config.js"></script>
     <script type="text/javascript">
-        var ztree;
-        var setting = {
-            async: {
-                enable: true,
-                url: '${path}/maintain/xzqh/toMain',
-                autoParam: ['id']
-            },
-            data: {
-                simpleData: {
-                    enable: true,
-                    pIdKey: 'parentId'
-                }
-            },
-            callback: {
-                onClick: function (event, treeId, treeNode) {
-                    if (treeNode) {
-                        $("#xzqhCode").attr("value", treeNode.name);
-                        $("[name='xzqhCode']").attr("value", treeNode.id);
-                    }
-                }
-            }};
+
         seajs.use(['$', 'pupZtree', 'ligerui'], function ($, pupZtree) {
             //添加属性
             $.fn.serializeObject = function () {
@@ -73,11 +53,6 @@
                     { id: 'detail', text: '详情', click: itemclick, icon: 'communication'}
                 ]
                 }
-            });
-            var pupZtreeObj = new pupZtree({
-                ztreeId: 'ztree',
-                setting: setting,
-                triggerId: 'xzqhCode'
             });
         });
 

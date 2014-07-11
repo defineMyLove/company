@@ -30,7 +30,17 @@ public class ProductService {
 
         user.setCreate_time(new Date().getTime());
         }
+        MultipartFile attaFile = request.getFile("atta");
+        if (attaFile != null && !attaFile.isEmpty()) {
+            UpLoadContext upLoad = new UpLoadContext(
+                    new UploadResource());
+            String url = upLoad.uploadFile(attaFile, null);
+            String fileName = attaFile.getOriginalFilename();
+            user.setAtta_name(fileName);
+            user.setAtta_path(url);
+        }
         user.insertOrUpdate();
+
         List<MultipartFile>  mFiles = request.getFiles("file");
         List<SqlParameter> sqlParameters = new ArrayList<SqlParameter>();
         for(MultipartFile mFile:mFiles) {
@@ -45,6 +55,8 @@ public class ProductService {
                 sqlParameters.add(sqlParameter);
             }
         }
+
+
         if (!sqlParameters.isEmpty()) {
             baseDao.executeBatch("insert into chanpin_file(id,path,name,chanpin_id) values(:id,:url,:name,:chanpin_id)", sqlParameters);
         }
@@ -81,11 +93,15 @@ public class ProductService {
     }
 
     public List<Map> findProduct(String id) {
-        List<Map> mapList = baseDao.queryForList("select id,name from chanpin_fenlei where up_id='" + id + "'");
+        List<Map> mapList = baseDao.queryForList("select id,name from chanpin_fenlei where up_id='" + id + "' order by order_no,create_time desc");
         for (Map map : mapList) {
            List<Map> chanList = baseDao.queryForList("select id,name,des from chanpin_info where fenlei_id='" + map.get("id") + "'");
             map.put("chird", chanList);
         }
         return mapList;
+    }
+
+    public List<Map> selectFiles(String id) {
+        return baseDao.queryForList("select * from chanpin_file where chanpin_id ='"+id+"'");
     }
 }

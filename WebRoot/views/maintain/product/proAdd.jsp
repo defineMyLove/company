@@ -80,10 +80,27 @@
                 </tr>
                 <tr>
                     <td width="20%" class="tabRight required">
-                        内容
+                        简介
                     </td>
                     <td width="30%" style="text-align: left;">
                             <input type="text" class="text" name="des" id="des" value="${info.des}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" class="tabRight required">
+                        内容
+                    </td>
+                    <td width="30%" style="text-align: left;">
+                        <textarea rows="20" cols="10" name="content" id="content">${info.content}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" class="tabRight required">
+                       附件
+                    </td>
+                    <td width="30%" style="text-align: left;">
+                        <input type="file" id="atta" name="atta" style="margin: 0px;padding:0px;"/>
+                        <br>
                     </td>
                 </tr>
                 <tr>

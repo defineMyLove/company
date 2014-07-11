@@ -9,38 +9,59 @@
 <body>
 <div class="panel">
     <fieldset class="fieldset">
-        <form:form id="showForm" method="post" action="${path}/maintain/lunwen/add">
-            <input id="id" name="id" value="${info.id}" type="hidden"/>
-            <table width="90%" class="table-add">
+            <table class="table-add">
                 <tr>
-                    <td width="20%" class="tabRight required">
-                        标题
+                    <td>您的姓名:</td>
+                    <td class="tabRight required">
+                     ${info.user_name}
                     </td>
-                    <td width="80%" style="text-align: left;">
-                            ${info.title}
-                    </td>
-
-                </tr>
-                <tr>
-                    <td width="20%" class="tabRight required">
-                       创建时间
-                    </td>
-                    <td width="30%" style="text-align: left;">
-                            ${info.create_time}
+                    <td>您的职务:</td>
+                    <td class="tabRight required">
+                        ${info.work_name}
                     </td>
                 </tr>
                 <tr>
-                    <td width="20%" class="tabRight required">
-                        内容
-                    </td>
-                    <td width="30%" style="text-align: left;">
-                            ${info.content}
+                    <td>公司名称:</td>
+                    <td class="tabRight required" colspan="3">
+                        ${info.company_nam}
                     </td>
                 </tr>
-
+                <tr>
+                    <td>公司地址:</td>
+                    <td class="tabRight" colspan="3">
+                        ${info.company_address}
+                    </td>
+                </tr>
+                <tr>
+                    <td>公司邮编:</td>
+                    <td class="tabRight required">
+                        ${info.company_youbian}
+                    </td>
+                    <td>电子邮件:</td>
+                    <td class="tabRight">
+                        ${info.email}
+                    </td>
+                </tr>
+                <tr>
+                    <td>公司电话:</td>
+                    <td class="tabRight required">
+                        ${info.company_tel}
+                    </td>
+                    <td>电子传真:</td>
+                    <td class="tabRight required">
+                        ${info.company_chuanzhen}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center">您希望获得什么帮助</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="tabRight required">
+                        ${info.content}
+                    </td>
+                </tr>
             </table>
 
-        </form:form>
     </fieldset>
 </div>
 </body>

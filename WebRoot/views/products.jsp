@@ -84,7 +84,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <c:forEach items="${product.chird}" var="n">
                     <tr>
                         <td width="17" valign="top" align="right" style="PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px"><!--&nbsp;<img src="imgs/interface/li_GRA.gif" width="12" height="13" />--></td>
-                        <td width="200" valign="top" align="left" style="PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; PADDING-TOP: 1px"><a href="p3.asp?SortID=263">
+                        <td width="200" valign="top" align="left" style="PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; PADDING-TOP: 1px">
+                            <a href="${path}/page/proDetail?id=${n.id}">
                             <strong style="COLOR: #489700">${n.name}</strong></a></td>
                         <td width="400" valign="top" align="left" style="PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; PADDING-TOP: 1px"><span style="FONT: 12px sans-serif">${n.des}</span></td></tr>
                     </tr>

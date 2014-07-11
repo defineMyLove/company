@@ -74,7 +74,7 @@ public class SolutionService {
     }
 
     public List<Map> findAll() {
-        StringBuffer buffer = new StringBuffer("select * from FANGAN_INFO where 1=1 ");
+        StringBuffer buffer = new StringBuffer("select * from FANGAN_INFO where 1=1 order by create_time desc");
         return baseDao.queryForList(buffer.toString());
     }
 }

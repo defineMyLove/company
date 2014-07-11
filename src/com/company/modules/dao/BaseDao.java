@@ -167,6 +167,7 @@ public class BaseDao {
 		Map rootMap = new HashMap();
         rootMap.put("total", infoCount); //信息总数
         rootMap.put("rows", subList);
+        rootMap.put("page", pageindex);
 		return rootMap;
 	}
 

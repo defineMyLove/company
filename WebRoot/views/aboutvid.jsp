@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'about.jsp' starting page</title>
+    <title>公司视频</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,9 +21,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	
 	<link rel="stylesheet" href="<%=basePath%>/static/css/style.css" type="text/css"></link>
-	
+	<link rel="stylesheet" href="<%=basePath%>/static/sea-modules/arale/dialog/1.2.4/dialog.css" type="text/css"></link>
     <link rel="stylesheet" href="<%=basePath%>/static/css/leftna.css" type="text/css"></link></head>
-  
+  <script src="${path}/static/sea-modules/sea.js"></script>
+  <script src="${path}/static/seajs-config.js"></script>
+  <style type="text/css">
+      .img-size{
+          width: 92px;
+          height: 64px;
+      }
+  </style>
+  <script type="text/javascript">
+      seajs.use(['$', 'dialog'], function ($, Dialog) {
+          //全局变量
+          window.$ = $;
+          //表单验证
+          new Dialog({
+              trigger: '.j-image',
+              height: '350px',
+              width: '425px',
+              effect: 'fade',
+          }).before('show',function() {
+                      this.set('content', '${path}/toView?view=/playerframe&param=file_path:'+this.activeTrigger.attr('data-id'));
+                  });
+
+      });
+  </script>
   <body>
   	
   	<!-- 网页头部 -->
@@ -57,10 +80,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	    </table>
             <div class="ui-table-container">
                 <display:table name="newList" uid="new" cellpadding="0"
-                               cellspacing="0" requestURI="${path }/page/aboutvid">
+                               cellspacing="0" requestURI="${path}/page/aboutvid">
                     <display:column>
                         <div class="thumbwrapper img-size">
-                            <img class="img-size" src="${new.picPath}">
+                            <img class="img-size j-image" src="${path}${new.pic_path}" data-id="${path}${new.file_path}">
                         </div>
                     </display:column>
                 </display:table>

@@ -45,6 +45,11 @@ public class MaintainController {
         }
         return "maintain/main";
     }
+    @RequestMapping(value = "loginOut")
+    public String login(HttpSession session) {
+        SystemContext.clearCurrentAccount(session);
+        return "maintain/login";
+    }
 
     @RequestMapping
     public String home(ModelMap map, HttpServletRequest request) {

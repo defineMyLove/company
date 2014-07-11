@@ -181,7 +181,7 @@
         <span class="space">|</span>
         <%--<a href="https://me.alipay.com/daomi" class="l-link2" target="_blank">信息</a>
         <span class="space">|</span>--%>
-        <a href="http://bbs.ligerui.com" class="l-link2" target="_blank">退出</a>
+        <a href="${path}/mainlogin/loginOut" class="l-link2">退出</a>
     </div>
 </div>
 <div id="layout1" style="width:99.2%;margin:0 auto; margin-top:4px; ">
@@ -212,8 +212,6 @@
                href="javascript:addTab('yejifenlei','公司业绩分类管理','${path}/toView?view=/maintain/yeji/yejiClassifyMain')">公司业绩分类管理</a>
             <a class="l-link"
                href="javascript:addTab('yeji','公司业绩管理','${path}/toView?view=/maintain/yeji/tree')">公司业绩管理</a>
-            <a class="l-link"
-               href="javascript:addTab('guize_opensettig','首页图片管理','${path}/maintain/paizhao/guize/openSetting')">首页图片管理</a>
             <a class="l-link"
                href="javascript:addTab('guize_opensettig','视频管理','${path}/toView?view=/maintain/shipin/shipinMain')">视频管理</a>
         </div>

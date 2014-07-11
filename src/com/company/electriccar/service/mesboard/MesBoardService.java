@@ -28,7 +28,7 @@ public class MesBoardService {
 
     public Map selectByPk(String id) {
         return
-        baseDao.queryForMap("select * from MES_BOARD where id ='" + id + "'");
+        baseDao.queryForMap("select *,FROM_UNIXTIME(left( create_time,10), '%Y-%m-%d' )  as create_time_str from MES_BOARD where id ='" + id + "'");
     }
 
     public void deleteById(String id) {
@@ -42,6 +42,7 @@ public class MesBoardService {
        /* if (StringUtil.isNotBlank(zhuan.getTitle())) {
             buffer.append(" and title like '%").append(zhuan.getTitle()).append("%'");
         }*/
+        buffer.append(" order by create_time desc");
         Map resultMap= baseDao.queryForDataGrid(request,buffer.toString(), new SqlParameter());
         return resultMap;
     }

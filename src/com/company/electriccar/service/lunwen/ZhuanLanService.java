@@ -43,6 +43,7 @@ public class ZhuanLanService {
         if (StringUtil.isNotBlank(zhuan.getTitle())) {
             buffer.append(" and title like '%").append(zhuan.getTitle()).append("%'");
         }
+        buffer.append(" order by create_time desc");
         Map resultMap= baseDao.queryForDataGrid(request,buffer.toString(), new SqlParameter());
         return resultMap;
     }

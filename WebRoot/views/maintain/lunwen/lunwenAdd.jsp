@@ -27,10 +27,13 @@
             jqueryUtil.formValidate({
                 form: "showForm",
                 rules: {
-                    "title": {required: true,maxlength:50},
-                    "content": {required: true}
+                    "title": {required: true,maxlength:50}
                 },
                 submitHandler: function (form) {
+                    if(KE.isEmpty('content')){
+                        alert("请输入内容！");
+                        return false;
+                    }
                     form.submit();
                 }
             });

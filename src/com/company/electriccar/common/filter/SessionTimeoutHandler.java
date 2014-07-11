@@ -117,6 +117,10 @@ public class SessionTimeoutHandler implements Filter {
         if (uri.startsWith("/static/")) {//静态资源文件
             return true;
         }
+
+        if (uri.startsWith("/resources/")) {//静态资源文件
+            return true;
+        }
         /*if(uri.equals(handlePage) || uri.endsWith(".js") || uri.endsWith(".css")
     			|| uri.endsWith(".gif") || uri.endsWith(".png") || uri.endsWith(".jpg")){//访问超时页面或资源时让其通过
     		return true;

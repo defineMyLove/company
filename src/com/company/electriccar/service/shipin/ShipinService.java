@@ -57,7 +57,7 @@ public class ShipinService {
 
     public Map find(SHIPIN_INFO zhuan, HttpServletRequest request) {
         StringBuffer buffer = new StringBuffer("select * from SHIPIN_INFO where 1=1 ");
-        if (SyetringUtil.isNotBlank(zhuan.getTitle())) {
+        if (StringUtil.isNotBlank(zhuan.getTitle())) {
             buffer.append(" and title like '%").append(zhuan.getTitle()).append("%'");
         }
         buffer.append(" order by create_time desc");

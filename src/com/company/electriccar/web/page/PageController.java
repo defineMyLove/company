@@ -116,6 +116,20 @@ public class PageController {
     }
 
     /**
+     * 公司业绩-详情
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping("yejiDetail")
+    public String yejiDetail(ModelMap model,HttpServletRequest request) {
+        String id = request.getParameter("id");
+        model.put("info", yejiService.selectByPk(id));
+        model.put("proFile", yejiService.selectFiles(id));
+        return "yejiDetail";
+    }
+
+    /**
      * 公司业绩
      * @param model
      * @param request
@@ -166,6 +180,14 @@ public class PageController {
         model.put("productList",productService.findProduct(id));
         return "products";
     }
+    @RequestMapping("proDetail")
+    public String proDetail(ModelMap model,String id ,HttpServletRequest request) {
+        model.put("newList", productClassifyService.getLevelClassify());
+        model.put("info",productService.selectByPk(id));
+        model.put("proFile", productService.selectFiles(id));
+        return "productDetail";
+    }
+
 
     @RequestMapping("addMes")
     public void addMes(MES_BOARD mes, HttpServletResponse response) {

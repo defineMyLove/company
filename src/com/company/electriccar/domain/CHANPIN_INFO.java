@@ -32,6 +32,7 @@ public class CHANPIN_INFO extends BaseBean{
 		KEYS.put("fenlei_id", "String");
 		KEYS.put("order_no", "Integer");
 		KEYS.put("create_time", "Long");
+		KEYS.put("content", "String");
 	}
 	public Map getColumnMap(){
 		return KEYS;
@@ -54,6 +55,8 @@ public class CHANPIN_INFO extends BaseBean{
 	private Boolean isSetted_order_no = false;
 	private Long create_time;
 	private Boolean isSetted_create_time = false;
+	private String content;
+	private Boolean isSetted_content = false;
 
 	private void initBeanValues(){
 		BEAN_VALUES = new HashMap<String, Object>();
@@ -65,6 +68,7 @@ public class CHANPIN_INFO extends BaseBean{
 			BEAN_VALUES.put("fenlei_id", null);
 			BEAN_VALUES.put("order_no", null);
 			BEAN_VALUES.put("create_time", null);
+			BEAN_VALUES.put("content", null);
 	}
 	
 	public CHANPIN_INFO() {
@@ -118,6 +122,9 @@ public class CHANPIN_INFO extends BaseBean{
 			if (isSetted_create_time) {
 				sBuffer.append("create_time=:create_time,");
 			}
+			if (isSetted_content) {
+				sBuffer.append("content=:content,");
+			}
 		String sql = sBuffer.toString();
 		return StringUtils.removeEnd(sql, ",") + " where id=:id";
 	}
@@ -142,6 +149,8 @@ public class CHANPIN_INFO extends BaseBean{
 			values.append(":order_no,");
 			fileds.append("create_time,");
 			values.append(":create_time,");
+			fileds.append("content,");
+			values.append(":content,");
 		sBuffer.append(StringUtils.removeEnd(fileds.toString(), ",") + ") values("+StringUtils.removeEnd(values.toString(), ",")+")");
 		return sBuffer.toString();
 	}
@@ -149,14 +158,14 @@ public class CHANPIN_INFO extends BaseBean{
 
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-48-09 hh:07
+		 * 䣺2014-41-10 hh:07
 		 */
 		public String getName() {
 			return name;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-48-09 hh:07
+		 * 2014-41-10 hh:07
 		 */
 		public CHANPIN_INFO setName(String name) {
 			this.name = name;
@@ -166,14 +175,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-48-09 hh:07
+		 * 䣺2014-41-10 hh:07
 		 */
 		public String getAtta_name() {
 			return atta_name;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-48-09 hh:07
+		 * 2014-41-10 hh:07
 		 */
 		public CHANPIN_INFO setAtta_name(String atta_name) {
 			this.atta_name = atta_name;
@@ -183,14 +192,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-48-09 hh:07
+		 * 䣺2014-41-10 hh:07
 		 */
 		public String getAtta_path() {
 			return atta_path;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-48-09 hh:07
+		 * 2014-41-10 hh:07
 		 */
 		public CHANPIN_INFO setAtta_path(String atta_path) {
 			this.atta_path = atta_path;
@@ -200,14 +209,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-48-09 hh:07
+		 * 䣺2014-41-10 hh:07
 		 */
 		public String getDes() {
 			return des;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-48-09 hh:07
+		 * 2014-41-10 hh:07
 		 */
 		public CHANPIN_INFO setDes(String des) {
 			this.des = des;
@@ -217,14 +226,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-48-09 hh:07
+		 * 䣺2014-41-10 hh:07
 		 */
 		public String getFenlei_id() {
 			return fenlei_id;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-48-09 hh:07
+		 * 2014-41-10 hh:07
 		 */
 		public CHANPIN_INFO setFenlei_id(String fenlei_id) {
 			this.fenlei_id = fenlei_id;
@@ -234,14 +243,14 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-48-09 hh:07
+		 * 䣺2014-41-10 hh:07
 		 */
 		public Integer getOrder_no() {
 			return order_no;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-48-09 hh:07
+		 * 2014-41-10 hh:07
 		 */
 		public CHANPIN_INFO setOrder_no(Integer order_no) {
 			this.order_no = order_no;
@@ -251,19 +260,36 @@ public class CHANPIN_INFO extends BaseBean{
 		}
 		/**
 		 * 获取<BR/>
-		 * 䣺2014-48-09 hh:07
+		 * 䣺2014-41-10 hh:07
 		 */
 		public Long getCreate_time() {
 			return create_time;
 		}
 		/**
 		 * 设置<BR/>
-		 * 2014-48-09 hh:07
+		 * 2014-41-10 hh:07
 		 */
 		public CHANPIN_INFO setCreate_time(Long create_time) {
 			this.create_time = create_time;
 			this.isSetted_create_time = true;
 			BEAN_VALUES.put("create_time",create_time);
+			return this;
+		}
+		/**
+		 * 获取<BR/>
+		 * 䣺2014-41-10 hh:07
+		 */
+		public String getContent() {
+			return content;
+		}
+		/**
+		 * 设置<BR/>
+		 * 2014-41-10 hh:07
+		 */
+		public CHANPIN_INFO setContent(String content) {
+			this.content = content;
+			this.isSetted_content = true;
+			BEAN_VALUES.put("content",content);
 			return this;
 		}
 
@@ -313,6 +339,9 @@ public class CHANPIN_INFO extends BaseBean{
 				}
 				if (isSetted_create_time) {
 					sBuffer.append("create_time=:create_time and ");
+				}
+				if (isSetted_content) {
+					sBuffer.append("content=:content and ");
 				}
 			String sql = sBuffer.toString();
 			sql = StringUtils.removeEnd(sql, " and ");
@@ -393,6 +422,9 @@ public class CHANPIN_INFO extends BaseBean{
 			obj = rs.getObject("CREATE_TIME");
 			BEAN_VALUES.put("create_time",obj);
 				this.setCreate_time(ConvertUtil.obj2Long(obj));
+			obj = rs.getObject("CONTENT");
+			BEAN_VALUES.put("content",obj);
+				this.setContent(ConvertUtil.obj2Str(obj));
 			return this;
 		}
 		

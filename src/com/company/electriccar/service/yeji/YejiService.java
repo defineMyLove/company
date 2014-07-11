@@ -31,7 +31,7 @@ public class YejiService {
         user.insertOrUpdate();
        List<MultipartFile>  mFiles = request.getFiles("file");
         List<SqlParameter> sqlParameters = new ArrayList<SqlParameter>();
-
+        boolean isFirst =true;
         for(MultipartFile mFile:mFiles) {
             SqlParameter sqlParameter = new SqlParameter();
             if (mFile != null && !mFile.isEmpty()) {
@@ -41,11 +41,17 @@ public class YejiService {
                 String fileName = mFile.getOriginalFilename();
                 sqlParameter.addValue("name", fileName).addValue("url",url)
                 .addValue("yeji_id",user.getId()).addValue("id",StringUtil.getUUID());
+                if(isFirst){//第一张图片默认为首页展示图片
+                    sqlParameter.addValue("type", 0);
+                    isFirst=false;
+                }else {
+                    sqlParameter.addValue("type", 1);
+                }
                 sqlParameters.add(sqlParameter);
             }
         }
         if (!sqlParameters.isEmpty()) {
-        baseDao.executeBatch("insert into yeji_file(id,path,name,yeji_id) values(:id,:url,:name,:yeji_id)",sqlParameters);
+        baseDao.executeBatch("insert into yeji_file(id,path,name,yeji_id,type) values(:id,:url,:name,:yeji_id,:type)",sqlParameters);
         }
     }
 
@@ -74,7 +80,11 @@ public class YejiService {
     }
 
     public List<Map> findYejiPic(int i) {
-        String sql = "select y.id,y.name,y.content as pic_path from YEJI_INFO y,YEJI_FENLEI f where y.fenlei_id = f.id and f.type=2";
+        String sql = "select y.id,y.name,f.path as pic_path from YEJI_INFO y,yeji_file f where y.id=f.yeji_id and  f.type=0";
         return baseDao.queryForList(sql);
+    }
+
+    public List<Map> selectFiles(String id) {
+        return baseDao.queryForList("select * from yeji_file where yeji_id ='"+id+"'");
     }
 }

@@ -9,28 +9,8 @@
     <script src="${path}/static/sea-modules/sea.js"></script>
     <script src="${path}/static/seajs-config.js"></script>
     <script type="text/javascript">
-        var ztree;
-        var setting = {
-            async: {
-                enable: true,
-                url: '${path}/maintain/xzqh/toMain',
-                autoParam: ['id']
-            },
-            data: {
-                simpleData: {
-                    enable: true,
-                    pIdKey: 'parentId'
-                }
-            },
-            callback: {
-                onClick: function (event, treeId, treeNode) {
-                    if (treeNode) {
-                        $("#xzqhCode").attr("value", treeNode.name);
-                        $("[name='xzqhCode']").attr("value", treeNode.id);
-                    }
-                }
-            }};
-        seajs.use(['$', 'pupZtree', 'ligerui'], function ($, pupZtree) {
+
+        seajs.use(['$','ligerui'], function ($) {
             //添加属性
             $.fn.serializeObject = function () {
                 var o = {};
@@ -56,35 +36,28 @@
                 height: '80%',
                 onBeforeShowData: renderFormData,
                 columns: [
-                    { display: '标题', name: 'title', align: 'left'},
-                    { display: '创建时间', name: 'create_time', align: 'left'},
-                    { display: '内容', name: 'content', align: 'left'}
+                    { display: '姓名', name: 'user_name', align: 'left', frozen: true},
+                    { display: '职务', name: 'work_name', align: 'left', frozen: true},
+                    { display: '公司名称', name: 'company_nam', align: 'left',frozen: true},
+                    { display: '公司地址', name: 'company_address', align: 'left',frozen: true},
+                    { display: '邮编', name: 'company_youbian', align: 'left',frozen: true},
+                    { display: '电子邮件', name: 'email', align: 'left'},
+                    { display: '公司电话', name: 'company_tel', align: 'left'},
+                    { display: '电子传真', name: 'company_chuanzhen', align: 'left'}
                 ],
                 url: '${path}/maintain/mesboard/list',
                 root: 'rows',
                 record: 'total',
                 toolbar: { items: [
-                    { id: 'add', text: '添加', click: itemclick, icon: 'add' },
-                    { line: true },
-                    { id: 'update', text: '修改', click: itemclick, icon: 'modify' },
-                    { line: true },
                     { id: 'del', text: '删除', click: itemclick, icon: 'delete'},
                     { line: true },
                     { id: 'detail', text: '详情', click: itemclick, icon: 'communication'}
                 ]
                 }
             });
-            var pupZtreeObj = new pupZtree({
-                ztreeId: 'ztree',
-                setting: setting,
-                triggerId: 'xzqhCode'
-            });
+
         });
 
-        function toUserAdd(form) {
-            form.action = "${path}/maintain/userGongan/addUI";
-            form.submit();
-        }
         function isClearOrg() {
             var value = $("#xzqhCode").val();
             if ($.trim(value) == "") {

@@ -9,28 +9,8 @@
     <script src="${path}/static/sea-modules/sea.js"></script>
     <script src="${path}/static/seajs-config.js"></script>
     <script type="text/javascript">
-        var ztree;
-        var setting = {
-            async: {
-                enable: true,
-                url: '${path}/maintain/xzqh/toMain',
-                autoParam: ['id']
-            },
-            data: {
-                simpleData: {
-                    enable: true,
-                    pIdKey: 'parentId'
-                }
-            },
-            callback: {
-                onClick: function (event, treeId, treeNode) {
-                    if (treeNode) {
-                        $("#xzqhCode").attr("value", treeNode.name);
-                        $("[name='xzqhCode']").attr("value", treeNode.id);
-                    }
-                }
-            }};
-        seajs.use(['$', 'pupZtree', 'ligerui'], function ($, pupZtree) {
+
+        seajs.use(['$', 'ligerui'], function ($, ligerui) {
             //添加属性
             $.fn.serializeObject = function () {
                 var o = {};
@@ -58,10 +38,9 @@
                 columns: [
                     { display: '标题', name: 'title', align: 'left'},
                     { display: '创建时间', name: 'create_time', align: 'left'},
-                    { display: '内容', name: 'content', align: 'left'},
-                    { display: '阅览数', name: 'query_count', align: 'left' }
+                    { display: '内容', name: 'content', align: 'left'}
                 ],
-                url: '${path}/maintain/lunwen/list',
+                url: '${path}/maintain/zhishi/list',
                 root: 'rows',
                 record: 'total',
                 toolbar: { items: [
@@ -75,17 +54,10 @@
                 ]
                 }
             });
-            var pupZtreeObj = new pupZtree({
-                ztreeId: 'ztree',
-                setting: setting,
-                triggerId: 'xzqhCode'
-            });
+
         });
 
-        function toUserAdd(form) {
-            form.action = "${path}/maintain/userGongan/addUI";
-            form.submit();
-        }
+
         function isClearOrg() {
             var value = $("#xzqhCode").val();
             if ($.trim(value) == "") {
@@ -117,7 +89,7 @@
             var rows = manager.getSelectedRow();
 
             if ('add' === item.id) {
-                window.top.openDialog("添加功能","${path}/maintain/lunwen/addUI",80,80, [
+                window.top.openDialog("添加功能","${path}/maintain/zhishi/addUI",80,80, [
                     { text: '确定', onclick: function (item, dialog) {window.top.submitForm()},cls:'l-dialog-btn-highlight' },
                     { text: '取消', onclick: function (item, dialog) { window.top.closeDialog(); }}
                 ]);
@@ -126,7 +98,7 @@
                     $.ligerDialog.warn("请选择一条记录");
                     return;
                 }
-                window.top.openDialog("添加功能","${path}/maintain/lunwen/addUI?id="+rows.id,80,80, [
+                window.top.openDialog("添加功能","${path}/maintain/zhishi/addUI?id="+rows.id,80,80, [
                     { text: '确定', onclick: function (item, dialog) {window.top.submitForm()},cls:'l-dialog-btn-highlight' },
                     { text: '取消', onclick: function (item, dialog) { window.top.closeDialog(); }}
                 ]);
@@ -149,7 +121,7 @@
                     $.ligerDialog.warn("请选择一条记录");
                     return;
                 }
-                window.top.openDialog("详情","${path}/maintain/lunwen/detail?id="+rows.id,80,80, [
+                window.top.openDialog("详情","${path}/maintain/zhishi/detail?id="+rows.id,80,80, [
                     { text: '取消', onclick: function (item, dialog) { window.top.closeDialog(); }}
                 ]);
             }

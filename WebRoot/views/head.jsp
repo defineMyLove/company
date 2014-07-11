@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${path}static/css/style.css" type="text/css"></link>
 
 
-
+<%--
 
 <script type="text/javascript" src="${path}static/js/swfobject.js"></script>
 
@@ -21,7 +21,7 @@ swfobject.embedSWF("http://www.virb.com/external/video/59984/MsOGibJlcnVwzc26YS7
 	{wmode:"transparent",allowFullScreen:"true",quality:"high",bgcolor:"#000000",salign:"tl"},
 	{id:"wmfg",name:"wmfg"}
 );
-</script>
+</script>--%>
 
 </head>
 

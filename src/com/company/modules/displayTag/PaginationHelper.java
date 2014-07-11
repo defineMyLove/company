@@ -105,6 +105,7 @@ public class PaginationHelper<T> implements PaginatedList {
         PaginationHelper<Map> helper = new PaginationHelper<Map>();
         helper.setFullListSize((Integer) map.get("total"));
         helper.setList((List)map.get("rows"));
+        helper.setPageNumber((Integer)map.get("page"));
         return helper;
     }
 }

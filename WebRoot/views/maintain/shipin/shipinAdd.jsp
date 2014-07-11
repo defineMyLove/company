@@ -7,20 +7,18 @@
     <link rel="stylesheet" type="text/css" href="${path}/static/css/common.css"/>
     <script src="${path}/static/sea-modules/sea.js"></script>
     <script src="${path}/static/seajs-config.js"></script>
-    <script charset="utf-8" src="${path}/static/js/kindeditor/kindeditor-min.js"></script>
     <script type="text/javascript">
         if('${msg}'){
             top.common.tip.notify({title:'${msg}'});
         }
-
-        seajs.use(['$', 'jquery-util'], function ($, jqueryUtil,pupZtree) {
+        seajs.use(['$', 'jquery-util'], function ($, jqueryUtil) {
             //全局变量
             window.$ = $;
             //表单验证
             jqueryUtil.formValidate({
                 form: "showForm",
                 rules: {
-                    "title": {required: true,maxlength:50}
+                    "title": {required: true,maxlength:50},
                     "content": {required: true},
                     "pic": {required: true}
                 },
@@ -29,12 +27,8 @@
                 }
             });
 
-            $("#add").click(
-                    function () {
-                        $("#showForm").attr("action", '${path}/maintain/shipin/add').submit();
-                    }
-            );
         });
+
         function submitForm(){
             $('#submitBtn')[0].click();
         }
@@ -60,15 +54,15 @@
                         视频
                     </td>
                     <td width="30%" style="text-align: left;">
-                        <input type="file" class="text" name="content" id="content" value="${info.content}"/>
+                        <input type="file" class="text" name="content" id="content"/>
                     </td>
                 </tr>
                 <tr>
                     <td width="20%" class="tabRight required">
-                        视频
+                       图片
                     </td>
                     <td width="30%" style="text-align: left;">
-                        <input type="file" class="text" name="pic" id="pic" value="${info.pic}"/>
+                        <input type="file" class="text" name="pic" id="pic"/>
                     </td>
                 </tr>
             </table>
