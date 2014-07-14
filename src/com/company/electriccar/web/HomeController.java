@@ -47,12 +47,11 @@ public class HomeController {
         //查询5个解决方案
         FANGAN_FENLEI fangan = new FANGAN_FENLEI();
         request.getSession().setAttribute("head_solutionList",solutionClassifyService.find(fangan, 10));
-
-
         //产品
-        map.put("head_pic", productService.getLastestPic());
-
+        map.put("head_pic", productService.getLastestPic(10));
         List<Map> yejiList = yejiService.findYejiPic(10);
+        map.put("yejiList",yejiList);
+
         return INDEX_VIEW;
     }
 

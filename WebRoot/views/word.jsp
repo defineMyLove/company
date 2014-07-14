@@ -11,7 +11,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>文字从下向上显示</title>
 
-<link rel="stylesheet" href="<%=basePath%>/static/css/style.css" type="text/css"></link>
+    <link href="${path}/static/css/public.css" type="text/css" rel="stylesheet"/>
+    <link href="${path}/static/css/else.css" type="text/css" rel="stylesheet"/>
+    <link href="${path}/static/css/index.css" type="text/css" rel="stylesheet" />
+    <!--导航引用js-->
+    <script src="${path}/static/js/nav.js" type="text/javascript"></script>
 
     <style type="text/css">
 

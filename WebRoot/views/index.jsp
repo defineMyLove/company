@@ -20,54 +20,214 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	
- 
-  	<link rel="stylesheet" href="<%=basePath%>/static/css/style.css" type="text/css">
-      <style type="text/css">
-          body{
-              margin:0 auto;
-          }
-      </style>
+      <link href="${path}/static/css/public.css" type="text/css" rel="stylesheet" />
+      <link href="${path}/static/css/index.css" type="text/css" rel="stylesheet" />
+
+      <!--导航引用js-->
+      <script src="${path}/static/js/nav.js" type="text/javascript"></script>
+
+      <script src="${path}/static/js/jquery1.42.min.js" type="text/javascript"></script>
+      <script src="${path}/static/js/jquery.superslide.2.1.1.js" type="text/javascript"></script>
+      <script type="text/javascript">
+          $(function(){
+              /*鼠标移过，左右按钮显示*/
+              $(".lc_bannerimg").hover(function(){
+                  $(this).find(".prev,.next").fadeTo("show",0.1);
+              },function(){
+                  $(this).find(".prev,.next").hide();
+              })
+              /*鼠标移过某个按钮 高亮显示*/
+              $(".prev,.next").hover(function(){
+                  $(this).fadeTo("show",0.7);
+              },function(){
+                  $(this).fadeTo("show",0.1);
+              })
+              $(".lc_bannerimg").slide({ titCell:".num ul" , mainCell:".bannerimgcont" , effect:"fold", autoPlay:true, delayTime:700 , autoPage:true });
+          });
+      </script>
+      <!--导航引用js.end-->
   	</head>
-  
-  <body style="margin:0 auto;">
-  
-    <div style="width: 100%; height: 10px;"></div>
+  <body>
   
     <!-- 网页头部 -->
-	<%@include file="head.jsp"%>   
-	                  
-	<!-- 焦点图 -->
-	<div class="mid">                                  
-		<%@include file="focuspic.jsp"%>	
-	</div>
-	
-	<!-- 分类导航模块 -->
-	<div class="modules1">
-		<br/><span>　公司业绩</span><br/>
-		<%@include file="mini.jsp"%>
-	</div>
-	
-	<div class="modules2">
-		<%@include file="sliding_door.jsp"%>
-	</div>
-	
-	<div class="modules3">
-		<br/><span>　新闻中心</span><br/>
-		
-		<jsp:include page="word.jsp" ></jsp:include>
-	</div>
-	
-	<!-- 链接模块 -->
-	<div class="link1">	
-		<img src="<%=basePath%>/static/images/guanhua.png"></img>
-		<img src="<%=basePath%>/static/images/zhongguangdian.png"></img>
-		<img src="<%=basePath%>/static/images/sony.png"></img>
-		<img src="<%=basePath%>/static/images/dayang.png"></img>
-	</div>
-	
+	<%@include file="head.jsp"%>
+
+    <div class="wrap moa">
+        <div class="lc_bannerimg">
+            <ul class="bannerimgcont">
+                <li><a href="#" target="_blank"><img src="${path}/static/images/lc_bannerimg1.jpg" /></a></li>
+                <li><a href="#" target="_blank"><img src="${path}/static/images/lc_bannerimg1.jpg" /></a></li>
+                <li><a href="#" target="_blank"><img src="${path}/static/images/lc_bannerimg1.jpg" /></a></li>
+                <li><a href="#" target="_blank"><img src="${path}/static/images/lc_bannerimg1.jpg" /></a></li>
+                <li><a href="#" target="_blank"><img src="${path}/static/images/lc_bannerimg1.jpg" /></a></li>
+                <li><a href="#" target="_blank"><img src="${path}/static/images/lc_bannerimg1.jpg" /></a></li>
+                <li><a href="#" target="_blank"><img src="${path}/static/images/lc_bannerimg1.jpg" /></a></li>
+                <li><a href="#" target="_blank"><img src="${path}/static/images/lc_bannerimg1.jpg" /></a></li>
+            </ul>
+            <a class="prev" href="javascript:void(0)"></a>
+            <a class="next" href="javascript:void(0)"></a>
+            <div class="num">
+                <ul></ul>
+            </div>
+
+        </div>
+        <!--数字大图轮换.end-->
+
+        <div class="menu fl">
+            <div class="menutit">
+                <ul><li class="hover">公司业绩</li></ul>
+                <a href="${path}/page/aboutper" class="more fr">更多>></a>
+                <div class="clear"></div>
+            </div>
+            <div class="listcont2">
+                <%--<div id=brand_show>
+                    <div class=brand-show-w>
+                        <ul class=first>
+                            <c:forEach items="${yejiList}" var="yeji">
+                                <li><a href="${path}/page/yejiDetail?id=${yeji.id}"><img src="${path}${yeji.pic_path}"></a>
+                                    <p><a href="${path}/page/yejiDetail?id=${yeji.id}">${yeji.name}</a></p></li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+                    <a class=btn-prev href="javascript:void(0);"></a> <a
+                        class=btn-next href="javascript:void(0);"></a> </div>--%>
+                    <DIV id=demo style="OVERFLOW: hidden; margin-top: 9px;"><!--修改显示区域的宽度-->
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                            <TBODY>
+                            <TR>
+                                <TD id=demo1>
+                                    <!--滚动部分表格开始-->
+                                    <table width="1000" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <c:forEach items="${yejiList}" var="yeji">
+                                                <td width="300" align="center">
+                                                    <a href="${path}/page/yejiDetail?id=${yeji.id}">
+                                                        <img src="<%=basePath%>${yeji.pic_path}" width="210" height="160" />
+                                                        </a>
+                                                    <p><a href="${path}/page/yejiDetail?id=${yeji.id}">${yeji.name}</a></p>
+                                                </td>
+                                            </c:forEach>
+
+                                        </tr>
+                                    </table>
+                                    <!--滚动部分表格结束-->
+                                </TD>
+                                <TD id=demo2></TD></TR></TBODY></TABLE>
+
+                    </DIV>
+
+                    <SCRIPT>
+                        var speed3=30 //速度数值越大速度越慢
+                        demo2.innerHTML=demo1.innerHTML
+                        function Marquee(){
+                            if(demo2.offsetWidth-demo.scrollLeft<=0)
+                                demo.scrollLeft-=demo1.offsetWidth
+                            else{
+                                demo.scrollLeft++
+                            }
+                        }
+                        var MyMar=setInterval(Marquee,speed3)
+                        demo.onmouseover=function() {clearInterval(MyMar)}
+                        demo.onmouseout=function() {MyMar=setInterval(Marquee,speed3)}
+                    </SCRIPT>
+            </div>
+        </div>
+        <!--公司业绩.end-->
+
+        <div class="menu fl" style="margin:0 15px;">
+            <div class="menutit">
+                <ul>
+                    <li class="hover" id="menutitnav1" onmouseover="setTab('menutitnav',1,2)">解决方案</li>
+                    <li id="menutitnav2" onmouseover="setTab('menutitnav',2,2)">最新产品</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="listcont2">
+                <div class="pad20" id="con_menutitnav_1" style="display:block;">
+                    <ul class="listtext">
+                        <c:forEach items="${head_solutionList}" var="item">
+                            <li><a href="${path}/page/solution?fenlei_id=${item.id}">${item.name}</a></li>
+                        </c:forEach>
+                    </ul>
+                </div>
+                <div class="pad20" id="con_menutitnav_2" style="display:none;">
+                    <DIV id=demo5 style="OVERFLOW: hidden; margin-top: 9px;"><!--修改显示区域的宽度-->
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                            <TBODY>
+                            <TR>
+                                <TD id=demo3>
+                                    <!--滚动部分表格开始-->
+                                    <table width="1000" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <c:forEach items="${head_pic}" var="yeji">
+                                                <td width="300" align="center">
+                                                    <a href="${path}/page/proDetail?id=${yeji.id}">
+                                                        <img src="<%=basePath%>${yeji.pic_path}" width="210" height="140" />
+                                                    </a>
+                                                    <p><a href="${path}/page/proDetail?id=${yeji.id}">${yeji.name}</a></p>
+                                                </td>
+                                            </c:forEach>
+
+                                        </tr>
+                                    </table>
+                                    <!--滚动部分表格结束-->
+                                </TD>
+                                <TD id=demo4></TD></TR></TBODY></TABLE>
+
+                    </DIV>
+
+                    <SCRIPT>
+                        var speed3=30 //速度数值越大速度越慢
+                        demo4.innerHTML=demo3.innerHTML
+                        function Marquee(){
+                            if(demo4.offsetWidth-demo5.scrollLeft<=0)
+                                demo5.scrollLeft-=demo3.offsetWidth
+                            else{
+                                demo5.scrollLeft++
+                            }
+                        }
+                        var MyMar=setInterval(Marquee,speed3)
+                        demo5.onmouseover=function() {clearInterval(MyMar)}
+                        demo5.onmouseout=function() {MyMar=setInterval(Marquee,speed3)}
+                    </SCRIPT>
+                </div>
+            </div>
+        </div>
+        <!--解决方案和最新产品.end-->
+
+        <div class="menu2 fr">
+            <div class="menu2tit">
+                <span class="fl">新闻中心</span>
+                <a href="${path}/page/news" class="more fr">更多>></a>
+                <div class="clear"></div>
+            </div>
+            <div class="listcont2">
+                <ul class="listtext pad20">
+                    <c:forEach items="${newList}" var="new">
+                        <li><a href="${path}/page/newDetail?id=${new.id}">${new.title}</a></li>
+                    </c:forEach>
+                </ul>
+            </div>
+        </div>
+        <!--新闻中心.end-->
+        <div class="clear"></div>
+
+        <div class="hzhb">
+            <div class="hzhbtit"></div>
+            <div class="wrap overflow">
+                <ul class="hzhbcont"><li><img src="${path}/static/images/lc_hzimg1.jpg" /></li>
+                    <li><img src="${path}/static/images/lc_hzimg2.jpg" /></li><li>
+                        <img src="${path}/static/images/lc_hzimg3.jpg" /></li><li><img src="${path}/static/images/lc_hzimg4.jpg" /></li><li>
+                        <img src="${path}/static/images/lc_hzimg5.jpg" /></li><li><img src="${path}/static/images/lc_hzimg6.jpg" /></li>
+                    <div class="clear">
+
+                    </div></ul>
+            </div>
+        </div>
+        <!--合作伙伴.end-->
+    </div>
 	<!-- 尾部模块 -->
 	<%@include file="end.jsp"%>
-	
   </body>
+  <script type=text/javascript charset=utf-8 src="${path}/static/js/scroll.js"></script>
 </html>

@@ -80,7 +80,7 @@ public class YejiService {
     }
 
     public List<Map> findYejiPic(int i) {
-        String sql = "select y.id,y.name,f.path as pic_path from YEJI_INFO y,yeji_file f where y.id=f.yeji_id and  f.type=0";
+        String sql = "select y.id,y.name,f.path as pic_path from YEJI_INFO y,yeji_file f where y.id=f.yeji_id and  f.type=0 limit 0,"+i;
         return baseDao.queryForList(sql);
     }
 

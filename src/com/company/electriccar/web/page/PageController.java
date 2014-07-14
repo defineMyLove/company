@@ -14,6 +14,7 @@ import com.company.electriccar.service.work.WorkService;
 import com.company.electriccar.service.yeji.YejiClassifyService;
 import com.company.electriccar.service.yeji.YejiService;
 import com.company.modules.displayTag.PaginationHelper;
+import com.company.modules.utils.StringUtil;
 import com.company.modules.utils.WebUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -178,12 +179,17 @@ public class PageController {
     public String product(ModelMap model,String id ,HttpServletRequest request) {
         model.put("newList", productClassifyService.getLevelClassify());
         model.put("productList",productService.findProduct(id));
+        model.put("info",productClassifyService.selectByPk(id));
+        model.put("classfiyId",id);
         return "products";
     }
     @RequestMapping("proDetail")
     public String proDetail(ModelMap model,String id ,HttpServletRequest request) {
+        Map<String,String> product =productService.selectByPk(id);
+        String pId = StringUtil.isNotBlank(request.getParameter("classfiyId")) ? request.getParameter("classfiyId") : product.get("fenlei_id");
         model.put("newList", productClassifyService.getLevelClassify());
-        model.put("info",productService.selectByPk(id));
+        model.put("info",product);
+        model.put("classifyInfo", productClassifyService.selectByPk(pId));
         model.put("proFile", productService.selectFiles(id));
         return "productDetail";
     }
@@ -276,7 +282,8 @@ public class PageController {
 
         FANGAN_INFO info = new FANGAN_INFO();
         info.setFenlei_id(fenlei_id);
-        model.put("infos", solutionService.find(info,request).get("rows"));
+        model.put("infos", solutionService.find(info, request).get("rows"));
+        model.put("currId",fenlei_id);
         return "solutions";
     }
 

@@ -43,6 +43,7 @@ public class ProductService {
 
         List<MultipartFile>  mFiles = request.getFiles("file");
         List<SqlParameter> sqlParameters = new ArrayList<SqlParameter>();
+        boolean isFirst =true;
         for(MultipartFile mFile:mFiles) {
             SqlParameter sqlParameter = new SqlParameter();
             if (mFile != null && !mFile.isEmpty()) {
@@ -52,13 +53,19 @@ public class ProductService {
                 String fileName = mFile.getOriginalFilename();
                 sqlParameter.addValue("name", fileName).addValue("url",url)
                         .addValue("chanpin_id",user.getId()).addValue("id",StringUtil.getUUID());
+                if(isFirst){//第一张图片默认为首页展示图片
+                    sqlParameter.addValue("type", 0);
+                    isFirst=false;
+                }else {
+                    sqlParameter.addValue("type", 1);
+                }
                 sqlParameters.add(sqlParameter);
             }
         }
 
 
         if (!sqlParameters.isEmpty()) {
-            baseDao.executeBatch("insert into chanpin_file(id,path,name,chanpin_id) values(:id,:url,:name,:chanpin_id)", sqlParameters);
+            baseDao.executeBatch("insert into chanpin_file(id,path,name,chanpin_id,type) values(:id,:url,:name,:chanpin_id,:type)", sqlParameters);
         }
 
     }
@@ -87,9 +94,9 @@ public class ProductService {
         return resultMap;
     }
 
-    public String getLastestPic() {
-        String sql = "SELECT atta_path FROM chanpin_info WHERE create_time=(SELECT MAX(create_time) FROM chanpin_info)";
-        return baseDao.queryForString(sql);
+    public List<Map> getLastestPic(int i) {
+        String sql = "select y.id,y.name,f.path as pic_path from CHANPIN_INFO y,chanpin_file f where y.id=f.chanpin_id and f.type=0 limit 0,"+i;
+        return baseDao.queryForList(sql);
     }
 
     public List<Map> findProduct(String id) {

@@ -39,7 +39,7 @@ public class NewsService {
     }
 
     public Map find(NEW_INFO zhuan, HttpServletRequest request) {
-        StringBuffer buffer = new StringBuffer("select * from NEW_INFO where 1=1 ");
+        StringBuffer buffer = new StringBuffer("select *,FROM_UNIXTIME(left( create_time,10), '%Y-%m-%d' ) as create_time_str from NEW_INFO where 1=1 ");
         if (StringUtil.isNotBlank(zhuan.getTitle())) {
             buffer.append(" and title like '%").append(zhuan.getTitle()).append("%'");
         }

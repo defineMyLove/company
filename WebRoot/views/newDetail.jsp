@@ -13,13 +13,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	
-	<link rel="stylesheet" href="<%=basePath%>/static/css/style.css" type="text/css"></link>
-    <link rel="stylesheet" href="<%=basePath%>/static/css/leftna.css" type="text/css"></link>
+
+      <link href="${path}/static/css/public.css" type="text/css" rel="stylesheet"/>
+      <link href="${path}/static/css/else.css" type="text/css" rel="stylesheet"/>
+      <link href="${path}/static/css/index.css" type="text/css" rel="stylesheet" />
       <link media="all" href="${path}/static/sea-modules/alice/table/1.0.1/table.css" rel="stylesheet">
       <link media="all" href="${path}/static/sea-modules/alice/paging/1.0.1/paging.css" rel="stylesheet">
       <link href="${path}/static/sea-modules/alice/form/1.0.2/form.css" type="text/css" rel="stylesheet"/>
       <link href="${path}/static/sea-modules/alice/grid/1.0.0/grid.css" type="text/css" rel="stylesheet"/>
+      <!--导航引用js-->
+      <script src="${path}/static/js/nav.js" type="text/javascript"></script>
       <title>新闻中心</title>
       <style type="text/css">
           /*.ui-table-container th,.ui-table-container td{
@@ -44,26 +47,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	<!-- 网页头部 -->
   	<%@include file="head.jsp"%>
-  	
-  	<!-- 标题 -->
-  	<div class="biaoti">
- 		<img src="<%=basePath%>/static/images/xinwen.png"></img>
-  	</div>
-  	
-  	<!-- 文本显示区域 -->
-  	<div class="wenbenwai">
-	  	<div class="wenben1">
-	  		<img src="<%=basePath%>/static/images/xiexian.png"></img>
-	  	</div>
-	  	<div class="show">
-	  		<table class="biaoge2" >
-	  	    <tr><td>${info.title}</td></tr>
-	  	    </table>
-            <div class="ui-table-container">
-               ${info.content}
+    <div class="wrap moa">
+        <img class="mar_b10" src="<%=basePath%>/static/images/listbanner.jpg"/>
+        <div class="bor_e7e7e7  minheight600">
+            <div class="listtit">
+                <div class="listtittext fl">新闻中心</div>
+                <p class="fr">${info.title}</p>
+
+                <div class="clear"></div>
             </div>
-	  	</div>
-  	</div>
+            <div class="listcont">
+                ${info.content}
+            </div> </div>
+    </div>
+    <div class="clear"></div>
+    </div>
   		<!-- 尾部模块 -->
 	<%@include file="end.jsp"%>
   </body>

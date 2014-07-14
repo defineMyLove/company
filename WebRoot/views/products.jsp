@@ -19,9 +19,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	
-	<link rel="stylesheet" href="<%=basePath%>/static/css/style.css" type="text/css"></link>
-	<link rel="stylesheet" href="<%=basePath%>/static/css/leftna.css" type="text/css"></link>
+
+      <link href="${path}/static/css/public.css" type="text/css" rel="stylesheet"/>
+      <link href="${path}/static/css/else.css" type="text/css" rel="stylesheet"/>
+      <link href="${path}/static/css/index.css" type="text/css" rel="stylesheet" />
+      <!--导航引用js-->
+      <script src="${path}/static/js/nav.js" type="text/javascript"></script>
 
       <style type="text/css">
           #cpxsz {
@@ -46,61 +49,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	<!-- 网页头部 -->
   	<%@include file="head.jsp"%>
-  	
-  	<!-- 标题 -->
-  	<div class="biaoti">
- 		<img src="<%=basePath%>/static/images/chanpin.png"></img>
-  	</div>
-  	
-  	<!-- 文本显示区域 -->
-  	<div class="wenbenwai">
-	  	<div class="wenben1">
-	  		<img src="<%=basePath%>/static/images/xiexian.png"></img>
-	  	</div>
-	  	
-	  	<div class="wenben2">
-		  	<div class="navbox">
-						<ul class="nav">
-                            <c:forEach items="${newList}" var="new">
-                                <li><a href="${path}/page/product?id=${new.id}">${new.name}</a></li>
-                            </c:forEach>
-					    </ul>
-				</div>
-	  	</div>
-	  	
-	  	<div class="wenben3">
-	  	
-	  		<table class="biaoge" >
-	  	    <tr><td>产品销售</td></tr>
-	  	    </table>
-<c:forEach items="${productList}" var="product">
-    <div style="width:600px; float:left;" id="cpxs">
-        <div>
-            <div tabindex="0" style="CURSOR: pointer; HEIGHT: 20px">
-                <li id="cpxsz">${product.name}</li></div>
-            <div style="width:700px;">
-                <table width="700" border="0" align="left">
-                    <tbody>
-                    <c:forEach items="${product.chird}" var="n">
-                    <tr>
-                        <td width="17" valign="top" align="right" style="PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px"><!--&nbsp;<img src="imgs/interface/li_GRA.gif" width="12" height="13" />--></td>
-                        <td width="200" valign="top" align="left" style="PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; PADDING-TOP: 1px">
-                            <a href="${path}/page/proDetail?id=${n.id}">
-                            <strong style="COLOR: #489700">${n.name}</strong></a></td>
-                        <td width="400" valign="top" align="left" style="PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; PADDING-TOP: 1px"><span style="FONT: 12px sans-serif">${n.des}</span></td></tr>
-                    </tr>
-                        </c:forEach>
-                    </tbody></table></div></div>
-    </div>
-</c:forEach>
 
-	  	</div>
-  	</div>
-  	
-  		<!-- 尾部模块 -->
-  	<div style="width: 100%; height: 35px;"></div>
+    <div class="wrap moa">
+        <img class="mar_b10" src="${path}/static/images/listbanner.jpg" />
+        <div class="wl130 fl">
+            <ul class="prolistnav">
+                <c:forEach items="${newList}" var="new">
+                    <li><a href="${path}/page/product?id=${new.id}">${new.name}</a></li>
+                </c:forEach>
+            </ul>
+        </div>
+
+        <div class="wr810 bor_e7e7e7 fr minheight700">
+            <div class="listtit"><div class="listtittext fl">产品销售</div><p class="fr">您现在的位置：<a href="${path}/page/products">产品销售</a>>
+               ${info.name}
+            </p><div class="clear"></div></div>
+
+            <div class="prolistcont">
+                <c:forEach items="${productList}" var="product">
+                                <h3>${product.name}</h3>
+                    <c:forEach items="${product.chird}" var="n">
+                                <p><b> <a href="${path}/page/proDetail?classfiyId=${classfiyId}&id=${n.id}">${n.name}</a></b>	${n.des}</p>
+                    </c:forEach>
+                </c:forEach>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
 	<%@include file="end.jsp"%>
-	<div style="width: 100%; height: 10px;"></div>
-  
   </body>
 </html>
