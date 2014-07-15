@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="listcont">
                 <display:table name="newList" uid="new" cellpadding="0"
-                               cellspacing="0" requestURI="${path}/page/news">
+                               cellspacing="0" requestURI="${path}/page/know">
                     <display:column title="标题" >
                         <a href="${path}/page/zhishiDetail?id=${new.id}">${new.title}</a>
                     </display:column>

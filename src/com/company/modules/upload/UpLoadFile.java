@@ -196,10 +196,10 @@ public abstract class UpLoadFile{
  * url: 图片的相对路径
  */
 class MesObject {
-	public static final Integer ERROR = 1;
     private Integer error =0;
     private String message;
     private String url;
+
 
     public Integer getError() {
         return error;

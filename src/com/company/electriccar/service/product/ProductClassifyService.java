@@ -29,6 +29,7 @@ public class ProductClassifyService {
 
     public void add(CHANPIN_FENLEI xzqh) {
         xzqh.setCreate_time(new Date().getTime());
+        xzqh.setId(StringUtil.getUUID());
         xzqh.insert();
     }
 

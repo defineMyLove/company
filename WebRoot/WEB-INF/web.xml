@@ -32,7 +32,7 @@
         <init-param>
             <param-name>filterExcludes</param-name>
             <param-value>
-                /toView;/page;/mainlogin;/mainlogin/login;
+                /toView;/page;/download;/mainlogin;/mainlogin/login;
             </param-value>
         </init-param>
     </filter>

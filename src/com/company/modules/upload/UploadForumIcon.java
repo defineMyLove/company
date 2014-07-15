@@ -20,7 +20,7 @@ public class UploadForumIcon extends UploadImage {
 	@Override
 	public MesObject validate() {
 		MesObject mesObject =super.validate();
-		if(mesObject.getError().equals(MesObject.ERROR))return mesObject;
+		if(mesObject.getError().equals(1))return mesObject;
 		BufferedImage image;
 		try {
 			image = ImageIO.read(multipartFile.getInputStream());

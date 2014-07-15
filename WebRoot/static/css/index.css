@@ -28,7 +28,6 @@
 #brand_show A.btn-next {height:0px;width:0px;display:block; position:absolute;top:17px;right:0px;}
 /*=====公司业绩.end=====*/
 
-#con_menutitnav_2 img{width:300px;height:220px;}
 
 /*=====新闻中心=====*/
 .listtext li {background:url(../images/lc_listico.jpg) no-repeat left 12px;padding-left:10px;line-height:26px;overflow: hidden; /*自动隐藏文字*/text-overflow: ellipsis;/*文字隐藏后添加省略号*/white-space: nowrap;/*强制不换行*/}

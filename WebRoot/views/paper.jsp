@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </display:column>
                     <display:column title="日期" property="createTime"></display:column>
                 </display:table>
-            </div>
+            </div></div>
         </div>
         <div class="clear"></div>
     </div>

@@ -1,10 +1,15 @@
 package com.company.modules.upload;
 
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
 import com.company.electriccar.common.syscontext.SystemContext;
+import com.company.modules.utils.JsonUtil;
+import com.company.modules.utils.StringUtil;
+import com.company.modules.utils.WebUtil;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,7 +56,7 @@ public class UpLoadContext {
 		//2.验证
 		log.debug("验证上传文件");
 		mesObject=upLoadFile.validate();
-		if(mesObject.getError().equals(MesObject.ERROR)){
+		if(mesObject.getError().equals(1)){
 			if(out!=null){
 				//out.print(binder.toJson(mesObject));
 				return null;
@@ -62,7 +67,7 @@ public class UpLoadContext {
 		//3.创建文件夹
 		log.debug("为上传文件创建文件夹");
 		mesObject=upLoadFile.createFile();
-		if(mesObject.getError().equals(MesObject.ERROR)){
+		if(mesObject.getError().equals(1)){
 			if(out!=null){
 				//out.print(binder.toJson(mesObject));
 				return null;
@@ -75,9 +80,15 @@ public class UpLoadContext {
 		mesObject =upLoadFile.upload();
 		
 		//5.以Json方式 返回上传结果
-		if(out!=null){
-			 //out.print(binder.toJson(mesObject));
-		}
-		return mesObject.getUrl();
+		if(out!=null) {
+            //out.print(binder.toJson(mesObject));
+            StringBuffer buffer = new StringBuffer();
+            Map paramMap = new HashMap();
+            paramMap.put("error", mesObject.getError());
+            paramMap.put("message", mesObject.getMessage());
+            paramMap.put("url", mesObject.getUrl());
+            WebUtil.write(response,JsonUtil.map2Json(paramMap));
+        }
+        return mesObject.getUrl();
 	}
 }

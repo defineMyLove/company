@@ -66,18 +66,9 @@
         <div id="tabDiv" style="display: none;">
             <div id="tabs-update" title="修改产品分类">
                 <form:form action="${path}/maintain/productclassify/update" method="post" modelAttribute="product" id="updateForm">
-
+                    <form:hidden path="id"/>
+                    <form:hidden path="up_id"/>
                     <table class="table-add">
-                        <tr>
-                            <td class="tabRight" style="width:20%">
-                                产品分类代码
-                            </td>
-                            <td style="text-align: left;width:80%">
-                                <strong>${product.id } </strong>
-                                <form:hidden path="id"/>
-                                <form:hidden path="up_id"/>
-                            </td>
-                        </tr>
                         <tr>
                             <td class="tabRight required" style="width: 20%;">
                                 名称
@@ -109,14 +100,6 @@
                                 <strong>${product.name } </strong>
                                 <input type="hidden" id="up_id" name="up_id"
                                        value="${product.id }"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="tabRight required" style="width:20%">
-                                产品分类代码
-                            </td>
-                            <td style="text-align: left;width:80%">
-                                <input type="text" class="text" name="id"/>
                             </td>
                         </tr>
                         <tr>

@@ -44,19 +44,21 @@
     <div class="logo fl"></div>
     <div class="lctit fl"></div>
     <div class="lc_select fr">
+        <form method="post" action="${path}/page/prosearch">
         <table width="330" border="0" cellspacing="0" cellpadding="0">
             <tr>
-                <td class="lc_selectinput"><input type="text" value="请输入关键字" /></td>
-                <td><input type="button" class="lc_selectbtn" value=" " /></td>
+                <td class="lc_selectinput"><input type="text" name="name" value="请输入关键字" /></td>
+                <td><input type="submit" class="lc_selectbtn" value=""/></td>
             </tr>
         </table>
+        </form>
     </div>
     <div class="clear"></div>
 </div>
 <!--head.end-->
 <div class="nav">
     <div class="wrap moa">
-        <ul id="jsddm" class="fl">
+        <ul id="jsddm" class="fl+">
             <li><a class="hover" href="${path}">首页</a></li>
             <li><a href="${path}/toView?view=aboutint">关于我们</a>
                 <ul>
@@ -85,7 +87,7 @@
             <li><a href="${path}/page/job">工作机会</a></li>
             <li><a href="${path}/toView?view=contactus">联系我们</a></li>
         </ul>
-        <a class="lc_email fr" href="#">进入公司邮箱</a>
+        <a class="lc_email fr" href="http://mail.ldt.cn" target="_blank" >进入公司邮箱</a>
         <div class="clear"></div>
     </div>
 </div>

@@ -84,7 +84,7 @@
                                     id: 'content',
                                     width: '80%',
                                     height: '300px',
-                                    imageUploadJson: '${path}/maintain/upload/imnage'
+                                    imageUploadJson: '${path}/maintain/upload/image'
                                 });
                             </script>
 

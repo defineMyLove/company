@@ -111,4 +111,9 @@ public class ProductService {
     public List<Map> selectFiles(String id) {
         return baseDao.queryForList("select * from chanpin_file where chanpin_id ='"+id+"'");
     }
+
+    public List<Map> selectByName(String str) {
+        String sql = "select y.id,y.name,f.path as pic_path from CHANPIN_INFO y,chanpin_file f where y.id=f.chanpin_id and f.type=0 and y.name like '%"+str+"%' or y.content like '%"+str+"%'";
+        return baseDao.queryForList(sql);
+    }
 }

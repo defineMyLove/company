@@ -91,19 +91,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </div>
                     <a class=btn-prev href="javascript:void(0);"></a> <a
                         class=btn-next href="javascript:void(0);"></a> </div>--%>
-                    <DIV id=demo style="OVERFLOW: hidden; margin-top: 9px;"><!--修改显示区域的宽度-->
-                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                    <DIV id="demo" style="OVERFLOW: hidden;height: 100%"><!--修改显示区域的宽度-->
+                        <TABLE cellSpacing=0 cellPadding=0 border=0 style="height: 100%">
                             <TBODY>
                             <TR>
                                 <TD id=demo1>
                                     <!--滚动部分表格开始-->
-                                    <table width="1000" border="0" cellspacing="0" cellpadding="0">
+                                    <table width="500" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <c:forEach items="${yejiList}" var="yeji">
                                                 <td width="300" align="center">
                                                     <a href="${path}/page/yejiDetail?id=${yeji.id}">
                                                         <img src="<%=basePath%>${yeji.pic_path}" width="210" height="160" />
-                                                        </a>
+                                                         </a>
                                                     <p><a href="${path}/page/yejiDetail?id=${yeji.id}">${yeji.name}</a></p>
                                                 </td>
                                             </c:forEach>
@@ -117,18 +117,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </DIV>
 
                     <SCRIPT>
-                        var speed3=30 //速度数值越大速度越慢
+                        var speed3_s=30 //速度数值越大速度越慢
                         demo2.innerHTML=demo1.innerHTML
-                        function Marquee(){
+                        function Marquee_s(){
                             if(demo2.offsetWidth-demo.scrollLeft<=0)
                                 demo.scrollLeft-=demo1.offsetWidth
                             else{
                                 demo.scrollLeft++
                             }
                         }
-                        var MyMar=setInterval(Marquee,speed3)
-                        demo.onmouseover=function() {clearInterval(MyMar)}
-                        demo.onmouseout=function() {MyMar=setInterval(Marquee,speed3)}
+                        var MyMar_s=setInterval(Marquee_s,speed3_s)
+                        document.getElementById("demo").onmouseover=function() {clearInterval(MyMar_s)}
+                        document.getElementById("demo").onmouseout=function() {MyMar_s=setInterval(Marquee_s,speed3_s)}
                     </SCRIPT>
             </div>
         </div>
@@ -150,19 +150,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:forEach>
                     </ul>
                 </div>
-                <div class="pad20" id="con_menutitnav_2" style="display:none;">
-                    <DIV id=demo5 style="OVERFLOW: hidden; margin-top: 9px;"><!--修改显示区域的宽度-->
-                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                <div id="con_menutitnav_2" style="display:none; height:100%">
+                    <DIV id=demo5 style="OVERFLOW: hidden; height:100%"><!--修改显示区域的宽度-->
+                        <TABLE cellSpacing=0 cellPadding=0 border=0 style=" height:100%">
                             <TBODY>
                             <TR>
                                 <TD id=demo3>
                                     <!--滚动部分表格开始-->
-                                    <table width="1000" border="0" cellspacing="0" cellpadding="0">
+                                    <table width="500" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <c:forEach items="${head_pic}" var="yeji">
                                                 <td width="300" align="center">
                                                     <a href="${path}/page/proDetail?id=${yeji.id}">
-                                                        <img src="<%=basePath%>${yeji.pic_path}" width="210" height="140" />
+                                                        <img src="<%=basePath%>${yeji.pic_path}" width="210" height="160" />
                                                     </a>
                                                     <p><a href="${path}/page/proDetail?id=${yeji.id}">${yeji.name}</a></p>
                                                 </td>
@@ -215,12 +215,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="hzhb">
             <div class="hzhbtit"></div>
             <div class="wrap overflow">
-                <ul class="hzhbcont"><li><img src="${path}/static/images/lc_hzimg1.jpg" /></li>
-                    <li><img src="${path}/static/images/lc_hzimg2.jpg" /></li><li>
-                        <img src="${path}/static/images/lc_hzimg3.jpg" /></li><li><img src="${path}/static/images/lc_hzimg4.jpg" /></li><li>
-                        <img src="${path}/static/images/lc_hzimg5.jpg" /></li><li><img src="${path}/static/images/lc_hzimg6.jpg" /></li>
+                <ul class="hzhbcont">
+                    <li><a href="http://www.tslproducts.com"><img src="${path}/static/images/products.png" /></a></li>
+                    <li><a href="http://www.grassvalley.com"><img src="${path}/static/images/grass.png" /></a></li>
+                    <li><a href="http://www.orad.tv"><img src="${path}/static/images/orad.png" /></a></li>
+                    <li><a href="http://junger-audio.com"><img src="${path}/static/images/junger.png" /></a></li>
+                    <li><a href="http://pro.sony.com.cn/pro/hub/home"><img src="${path}/static/images/sony.png" /></a></li>
+                    <li><a href="http://www.axon.tv/EN/home"><img src="${path}/static/images/axon.png" /></a></li>
                     <div class="clear">
-
                     </div></ul>
             </div>
         </div>
@@ -229,5 +231,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- 尾部模块 -->
 	<%@include file="end.jsp"%>
   </body>
-  <script type=text/javascript charset=utf-8 src="${path}/static/js/scroll.js"></script>
 </html>

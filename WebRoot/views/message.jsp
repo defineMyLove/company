@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               submitHandler: function (form) {
                   /*form.submit();*/
                   var mainParam = $('#showForm').serializeObject();
-                  $.getJSON('${path}/page/addMes',mainParam,function(){
+                  $.post('${path}/page/addMes',mainParam,function(){
                       alert("谢谢您的留言!");
                   })
                   return false;

@@ -183,6 +183,13 @@ public class PageController {
         model.put("classfiyId",id);
         return "products";
     }
+    @RequestMapping("prosearch")
+    public String prosearch(ModelMap model,String name ,HttpServletRequest request) {
+        model.put("newList", productClassifyService.getLevelClassify());
+        model.put("pros", productService.selectByName(name));
+        model.put("name",StringUtil.isBlank(name)?"请输入关键字":name);
+        return "prosearch";
+    }
     @RequestMapping("proDetail")
     public String proDetail(ModelMap model,String id ,HttpServletRequest request) {
         Map<String,String> product =productService.selectByPk(id);

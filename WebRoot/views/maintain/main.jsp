@@ -186,27 +186,7 @@
 </div>
 <div id="layout1" style="width:99.2%;margin:0 auto; margin-top:4px; ">
     <div position="left" title="主要菜单" id="accordion1">
-        <div title="技术交流" class="l-scroll">
-            <div style=" height:7px;"></div>
-            <a class="l-link" href="javascript:addTab('userpage','论文专栏管理','${path}/toView?view=/maintain/lunwen/lunwenMain')">论文专栏管理</a>
-            <a class="l-link" href="javascript:addTab('xzqhpage','知识库管理','${path}/toView?view=/maintain/zhishi/zhishiMain')">知识库管理</a>
-            <a class="l-link" href="javascript:addTab('dicpage','留言板管理','${path}/toView?view=maintain/mesboard/mesboardMain')">留言板管理</a>
-            <a class="l-link" href="javascript:addTab('xiaqupage','产品分类管理','${path}/toView?view=/maintain/product/tree')">产品分类管理</a>
-            <a class="l-link" href="javascript:addTab('chanpinqupage','产品管理','${path}/toView?view=/maintain/product/proTree')">产品管理</a>
-        </div>
-        <div title="解决方案管理">
-            <div style=" height:7px;"></div>
-            <a class="l-link"
-               href="javascript:addTab('solutionfenlei','解决方案类别管理','${path}/toView?view=/maintain/solution/solutionClassifyMain')">解决方案类别管理</a>
-            <a class="l-link"  href="javascript:addTab('lingqudianpage','解决方案管理','${path}/toView?view=/maintain/solution/tree')">解决方案管理</a>
-            <a class="l-link" href="javascript:addTab('chetiepage','工作机会管理','${path}/toView?view=/maintain/work/workMain')">工作机会管理</a>
-        </div>
-        <div title="新闻管理">
-            <div style=" height:7px;"></div>
-            <a class="l-link"
-               href="javascript:addTab('gonggaopage','新闻管理','${path}/toView?view=/maintain/news/newsMain')">新闻管理</a>
-        </div>
-        <div title="公司业绩管理">
+        <div title="关于我们">
             <div style=" height:7px;"></div>
             <a class="l-link"
                href="javascript:addTab('yejifenlei','公司业绩分类管理','${path}/toView?view=/maintain/yeji/yejiClassifyMain')">公司业绩分类管理</a>
@@ -215,11 +195,38 @@
             <a class="l-link"
                href="javascript:addTab('guize_opensettig','视频管理','${path}/toView?view=/maintain/shipin/shipinMain')">视频管理</a>
         </div>
+
+        <div title="新闻管理">
+            <div style=" height:7px;"></div>
+            <a class="l-link"
+               href="javascript:addTab('gonggaopage','新闻管理','${path}/toView?view=/maintain/news/newsMain')">新闻管理</a>
+        </div>
+        <div title="产品销售">
+            <div style=" height:7px;"></div>
+            <a class="l-link" href="javascript:addTab('xiaqupage','产品分类管理','${path}/toView?view=/maintain/product/tree')">产品分类管理</a>
+            <a class="l-link" href="javascript:addTab('chanpinqupage','产品管理','${path}/toView?view=/maintain/product/proTree')">产品管理</a>
+        </div>
+        <div title="解决方案">
+            <div style=" height:7px;"></div>
+            <a class="l-link"
+               href="javascript:addTab('solutionfenlei','解决方案类别管理','${path}/toView?view=/maintain/solution/solutionClassifyMain')">解决方案类别管理</a>
+            <a class="l-link"  href="javascript:addTab('lingqudianpage','解决方案管理','${path}/toView?view=/maintain/solution/tree')">解决方案管理</a>
+        </div>
+        <div title="技术交流" class="l-scroll">
+            <div style=" height:7px;"></div>
+            <a class="l-link" href="javascript:addTab('userpage','论文专栏管理','${path}/toView?view=/maintain/lunwen/lunwenMain')">论文专栏管理</a>
+            <a class="l-link" href="javascript:addTab('xzqhpage','知识库管理','${path}/toView?view=/maintain/zhishi/zhishiMain')">知识库管理</a>
+            <a class="l-link" href="javascript:addTab('dicpage','留言板管理','${path}/toView?view=maintain/mesboard/mesboardMain')">留言板管理</a>
+        </div>
+        <div title="工作机会">
+            <div style=" height:7px;"></div>
+            <a class="l-link" href="javascript:addTab('chetiepage','工作机会管理','${path}/toView?view=/maintain/work/workMain')">工作机会管理</a>
+        </div>
+\
+
 </div>
     <div position="center" id="framecenter">
-        <div tabid="home" title="我的主页" style=" height: 800px;">
-            <iframe frameborder="0" name="home" id="home" src=""></iframe>
-        </div>
+
     </div>
 </div>
 <div style="height:32px; line-height:32px; text-align:center;">
@@ -232,6 +239,7 @@
     function closeDialog(){
         if(currDialog) {
             currDialog.close();
+            $('#newDialog').remove();
         }
     }
     function refreshGrid(){
