@@ -142,9 +142,9 @@
         .l-topmenu {
             margin: 0;
             padding: 0;
-            height: 31px;
-            line-height: 31px;
-            background: url('${path}/static/images/top.jpg') repeat-x bottom;
+            height: 37px;
+            line-height: 37px;
+            background-color:#1D438B;
             position: relative;
             border-top: 1px solid #1D438B;
         }
@@ -152,8 +152,9 @@
         .l-topmenu-logo {
             color: #E7E7E7;
             padding-left: 35px;
+            height: 33px;
             line-height: 26px;
-            background: url('${path}/static/images/topicon.gif') no-repeat 10px 5px;
+            background: url('${path}/static/images/topicon.png') no-repeat 10px 5px;
         }
 
         .l-topmenu-welcome {
@@ -175,7 +176,7 @@
 <body style="padding:0px;background:#EAEEF5;">
 <div id="pageloading"></div>
 <div id="topmenu" class="l-topmenu">
-    <div class="l-topmenu-logo">公司网站后台管理</div>
+    <div class="l-topmenu-logo"></div>
     <div class="l-topmenu-welcome">
         <a href="index.aspx" class="l-link2">${LOGIN_USER.name}</a>
         <span class="space">|</span>
