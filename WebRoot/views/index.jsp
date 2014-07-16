@@ -202,11 +202,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="clear"></div>
             </div>
             <div class="listcont2">
+                <marquee scrollamount='1' scrolldelay='30' direction= 'UP' width='240' id='YiMing' height='190' onmouseover='this.stop()' onmouseout='this.start()'>
                 <ul class="listtext pad20">
                     <c:forEach items="${newList}" var="new">
                         <li><a href="${path}/page/newDetail?id=${new.id}">${new.title}</a></li>
                     </c:forEach>
                 </ul>
+                </marquee>
             </div>
         </div>
         <!--新闻中心.end-->

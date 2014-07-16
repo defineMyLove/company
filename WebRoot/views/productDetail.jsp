@@ -126,7 +126,7 @@
                 <div>
                 <div style="text-align: center;margin: 0 auto;">
                         <a class="probtn" href="${path}/download/file?fileName=${info.atta_name}&url=${info.atta_path}">资料下载</a>
-                        <a class="probtn" href="mailto:sales@ldt.cn">价格咨询</a>
+                        <a class="probtn" href="mailto:ldt@ldt.cn">价格咨询</a>
                 </div>
                 </div>
             </div>

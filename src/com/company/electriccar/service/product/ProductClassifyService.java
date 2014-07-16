@@ -41,7 +41,7 @@ public class ProductClassifyService {
         return true;
     }
 
-    public void del(String code) {
+    public void delete(String code) {
         CHANPIN_FENLEI fenlei = new CHANPIN_FENLEI();
         fenlei.setId(code);
         fenlei.deleteById();

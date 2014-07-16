@@ -70,7 +70,7 @@ public class ProductClassifyController {
                 //先把要删除的xzqh给查出来
             	xzqh= productClassifyService.selectByPK(code);
                 path += xzqh.getUp_id();
-                productClassifyService.del(code);
+                productClassifyService.delete(code);
                 path= ResponseMes.addIsLoadTreeForPath(path, true);
                 path=ResponseMes.addPromptTypeForPath(path,PromptType.del);
             } else {
