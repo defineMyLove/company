@@ -218,12 +218,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="hzhbtit"></div>
             <div class="wrap overflow">
                 <ul class="hzhbcont">
-                    <li><a href="http://www.tslproducts.com"><img src="${path}/static/images/products.png" /></a></li>
                     <li><a href="http://www.grassvalley.com"><img src="${path}/static/images/grass.png" /></a></li>
-                    <li><a href="http://www.orad.tv"><img src="${path}/static/images/orad.png" /></a></li>
-                    <li><a href="http://junger-audio.com"><img src="${path}/static/images/junger.png" /></a></li>
                     <li><a href="http://pro.sony.com.cn/pro/hub/home"><img src="${path}/static/images/sony.png" /></a></li>
                     <li><a href="http://www.axon.tv/EN/home"><img src="${path}/static/images/axon.png" /></a></li>
+                    <li><a href="http://www.orad.tv"><img src="${path}/static/images/orad.png" /></a></li>
+                    <li><a href="http://www.tslproducts.com"><img src="${path}/static/images/products.png" /></a></li>
+                    <li><a href="http://junger-audio.com"><img src="${path}/static/images/junger.png" /></a></li>
                     <div class="clear">
                     </div></ul>
             </div>
